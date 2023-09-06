@@ -1,0 +1,16 @@
+<nav 
+  class='component-sidebar' [ngClass]="collapsed ? 'component-sidebar--collapsed' : ''"
+>
+  <component-logo></component-logo>
+  <ul class="component-sidebar__items">
+    <li *ngFor="let item of menu" (click)="navigate(item.path)">
+      <img src="{{ item.icon }}" />
+      <p *ngIf="!collapsed">{{ item.label }}</p>
+      <span *ngIf="collapsed" class="tooltip">{{ item.label }}</span>
+    </li>
+    <li (click)="toggle()" class="toggle-button">
+      <img src="assets/icons/circle-right.svg" />
+      <p *ngIf="!collapsed">Fechar</p>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,32 @@
+.notification {
+  padding: 10px 50px;
+  border: 1px solid #ebeaea;
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  img {
+    height: 35px;
+    width: 35px;
+    margin-left: 20px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  &--message {
+    box-shadow: 5px 5px 10px 1px #30c20381;
+  }
+
+  &--error {
+    box-shadow: 7px 7px 10px #e42020;
+  }
+
+  &--warning {
+    box-shadow: 5px 5px 10px 1px #c1d601;
+  }
+}

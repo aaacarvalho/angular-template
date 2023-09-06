@@ -1,0 +1,12 @@
+@import 'colors';
+
+.login-view {
+  width: 100vw;
+  height: 100vh;
+
+  background-color: $primary-color;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

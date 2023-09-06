@@ -1,0 +1,12 @@
+<div class="input-container">
+  <img *ngIf="icon" src="{{ icon }}" />
+  <input 
+    class="input" 
+    type="{{ type }}"
+    value="{{ value }}"
+    (change)="onChange($event)"
+    placeholder="{{ label }}" 
+  />
+</div>
+
+

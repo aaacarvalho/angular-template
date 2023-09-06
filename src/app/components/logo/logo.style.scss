@@ -1,0 +1,17 @@
+.logo {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0px 60px;
+  
+  div {
+    border: 3px solid #FFF;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    opacity: 0.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+  }
+}

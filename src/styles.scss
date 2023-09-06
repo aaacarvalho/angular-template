@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'colors';
+@import 'typography';
+
+*, html, body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+}
+
+html, body {
+  background-color: #FFF;
+}

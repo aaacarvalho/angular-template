@@ -1,0 +1,10 @@
+<ng-container *ngIf="loading; then loading_button; else normal_button">
+</ng-container>
+
+<ng-template #normal_button>
+  <button class="button" (click)="onClick($event)">{{ label }}</button>
+</ng-template>
+
+<ng-template #loading_button>
+  <button class="button">Loading...</button>
+</ng-template>

@@ -1,0 +1,26 @@
+<form class="login-form">
+  <component-logo></component-logo>
+  <div class="input-wrapper">
+    <component-input 
+      [value]="email"
+      [type]="'email'"
+      [label]="'Email'"
+      [icon]="'assets/icons/email.svg'"
+      (inputChangeEvent)="emailChange($event)"
+    ></component-input>
+  </div>
+  <div class="input-wrapper">
+    <component-input 
+      [label]="'Senha'"
+      [value]="password"
+      [type]="'password'"     
+      [icon]="'assets/icons/lock.svg'" 
+      (inputChangeEvent)="passwordChange($event)"
+    ></component-input>
+  </div>
+  <div class="button-wrapper">
+    <component-button [label]="'Sair'"></component-button>
+    <component-button [label]="'Login'" (onClickEvent)="submit($event)"></component-button>
+  </div>
+  <a class="forgot-password">Esqueceu sua senha?</a>
+</form>

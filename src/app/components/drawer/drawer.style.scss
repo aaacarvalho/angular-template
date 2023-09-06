@@ -1,0 +1,38 @@
+.drawer {
+  height: 100vh;
+  width: 100vw;
+  background-color: #00000083;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: block;
+
+  &__wrapper {
+    &__close-button {
+      background-color: #1b1a1ac0;
+      color: #FFF;
+      border-radius: 50px;
+      padding: 5px 15px;
+      cursor: pointer;
+      position: absolute;
+      right: 41vw;
+      top: 1vw;
+      outline: none;
+      box-shadow: none;
+      border: none;
+    }
+
+    &__content {
+      background-color: #FFF;
+      max-width: 40vw;
+      height: 100vh;
+      margin-left: auto;
+      padding: 20px;
+      display: block;
+    }
+  }
+
+  &--collapsed {
+    display: none;
+  }
+}
