@@ -1,23 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { DashboardView } from './dashboard/dashboard-view.component';
 import { ComponentsModule } from '../components/components.module';
 import { RouterModule } from '@angular/router';
 import { LoginView } from './login/login-view.component';
-
-const routes = [
-  {
-    path: 'login',
-    component: LoginView,
-  },
-  {
-    path: 'dashboard',
-    component: DashboardView,
-  },
-];
+import { routes } from './routes';
+import { DefaultView } from './default/default-view.component';
 
 @NgModule({
-  declarations: [DashboardView, LoginView],
+  declarations: [LoginView, DefaultView],
   imports: [BrowserModule, ComponentsModule, RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
