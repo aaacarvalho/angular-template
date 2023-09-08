@@ -1,5 +1,6 @@
 import { DefaultView } from './default/default-view.component';
 import { LoginView } from './login/login-view.component';
+import { ProjectsView } from './projects/projects-view.component';
 
 export const routes = [
   {
@@ -7,7 +8,7 @@ export const routes = [
     component: LoginView,
   },
   {
-    path: '',
-    component: DefaultView,
+    path: 'projetos',
+    component: ProjectsView,
   },
 ];

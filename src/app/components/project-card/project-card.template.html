@@ -1,0 +1,40 @@
+<li class="project-card">
+  <div class="description" (click)="hideOverlay()">
+    <small>Programa {{ project.programName }}</small>
+    <p>{{ project.propertyName }}</p>
+    <small>Alvaro Carvalho</small>
+  </div>
+  <div class="dates" (click)="hideOverlay()">
+    <p>Iniciado em: {{ project.createdAt }}</p>
+  </div>
+  <div class="status" (click)="hideOverlay()">
+    <p>Status: Em atraso</p>
+  </div>
+  <div class="actions" (click)="hideOverlay()">
+    <component-button
+      label="Atividades"
+      [type]="'light'"
+    ></component-button>
+    <component-button
+      label="Dashboard"
+      [type]="'light'"
+    ></component-button>
+    <component-button
+      [label]="'Info'"
+      [type]="'light'"
+      (onClickEvent)="showDetails()"
+    ></component-button>
+  </div>  
+  <div class="info" (click)="showOverlay()">
+    <img src="assets/icons/dots.svg" />
+  </div>    
+  <div class="overlay" [ngClass]="overlay ? 'overlay--open' : 'overlay--closed'">
+    <p>Contrato {{ project.contractNumber }}</p>
+    <p>-</p>
+    <p>Total recebido: R$ 45.987,23</p>
+  </div>
+</li>
+
+<component-drawer [collapsed]="!details" (drawerCollapsed)="hideDetails($event)">
+  <h1>Project {{ project.propertyName }}</h1>
+</component-drawer>

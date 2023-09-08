@@ -1,0 +1,38 @@
+<view-default>
+  <div class="section-header">
+    <h1>Projetos</h1>
+    <component-input
+      [type]="'text'"
+      [label]="'Pesquisar'"
+      [icon]="'assets/icons/search.svg'"
+      (inputChangeEvent)="searchFor($event)"
+    ></component-input>
+  </div>
+  <ul class="project-list">
+    <ng-template *ngIf="loading; then loaderTemplate else projectsTemplate"></ng-template>
+  </ul>
+</view-default>
+
+<ng-template #projectsTemplate>
+  <component-project-card *ngFor="let project of currentProjects" [project]="project">
+  </component-project-card>
+</ng-template>
+
+<ng-template #loaderTemplate>
+  <div class="loader-container" *ngFor="let _ of [].constructor(5)">
+    <div>
+      <ngx-skeleton-loader [theme]="{ width: '50%', height: '20px', background: '#ddd', margin: '0px' }" ></ngx-skeleton-loader>
+      <ngx-skeleton-loader [theme]="{ height: '30px', background: '#ddd', margin: '0px' }" ></ngx-skeleton-loader>
+      <ngx-skeleton-loader [theme]="{ width: '50%', height: '20px', background: '#ddd', margin: '0px' }" ></ngx-skeleton-loader>
+    </div>
+    <div>
+      <ngx-skeleton-loader [theme]="{ height: '90%', background: '#ddd', margin: '0px' }" ></ngx-skeleton-loader>
+    </div>
+    <div>
+      <ngx-skeleton-loader [theme]="{ height: '90%', background: '#ddd', margin: '0px' }" ></ngx-skeleton-loader>
+    </div>
+    <div>
+      <ngx-skeleton-loader [theme]="{ height: '90%', background: '#ddd', margin: '0px' }" ></ngx-skeleton-loader>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,41 @@
+.section-header {
+  display: flex;
+  justify-content: space-between;
+
+  component-input {
+    width: 450px;
+  }
+}
+
+.project-list {
+  list-style: none;
+  margin-top: 20px;
+
+  .project-card:first-of-type {
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+  }
+
+  .project-card:last-of-type {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 50px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+}
+
+.loader-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: #FFF;
+  border: 1px solid #e5e7eb;
+  border-bottom: none;
+  padding: 20px 20px 15px 20px;
+
+  div {
+    flex: 0 0 20%;
+  }
+
+  &:last-of-type {
+    border-bottom: 1px solid #e5e7eb;
+  }
+}

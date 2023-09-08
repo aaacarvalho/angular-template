@@ -2,12 +2,12 @@
   <div class="drawer__wrapper">
     <button 
       class="drawer__wrapper__close-button"
-      (click)="toggle()"
+      (click)="close()"
     >
       X  Fechar
     </button>
     <div class="drawer__wrapper__content">
-
+      <ng-content></ng-content>
     </div>
   </div>
 </section>

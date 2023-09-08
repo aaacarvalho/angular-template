@@ -1,7 +1,14 @@
 .dashboard {
   display: flex;
+  background-color: #f4f4f4;
 }
 
 .container-wrapper {
   margin: 5vw;
+  width: 100%;
+  
+  .content {
+    max-height: 100%;
+    overflow: scroll;
+  }
 }

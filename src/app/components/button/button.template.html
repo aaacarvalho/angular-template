@@ -2,9 +2,9 @@
 </ng-container>
 
 <ng-template #normal_button>
-  <button class="button" (click)="onClick($event)">{{ label }}</button>
+  <button class="button" [ngClass]="type === 'dark' ? 'button--dark' : 'button--light'" (click)="onClick($event)">{{ label }}</button>
 </ng-template>
 
 <ng-template #loading_button>
-  <button class="button">Loading...</button>
+  <button class="button" [ngClass]="type === 'dark' ? 'button--dark' : 'button--light'">Loading...</button>
 </ng-template>

@@ -8,6 +8,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { InputComponent } from './input/input.component';
 import { DrawerComponent } from './drawer/drawer.component';
 import { NotificationComponent } from './notification/notification.component';
+import { ProjectCardComponent } from './project-card/project-card.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { NotificationComponent } from './notification/notification.component';
     InputComponent,
     DrawerComponent,
     NotificationComponent,
+    ProjectCardComponent,
   ],
   imports: [BrowserModule],
   exports: [
@@ -26,6 +28,8 @@ import { NotificationComponent } from './notification/notification.component';
     LoginFormComponent,
     DrawerComponent,
     NotificationComponent,
+    ProjectCardComponent,
+    InputComponent,
   ],
 })
 export class ComponentsModule {}

@@ -6,6 +6,7 @@
   top: 0px;
   left: 0px;
   display: block;
+  z-index: 100;
 
   &__wrapper {
     &__close-button {
@@ -27,7 +28,7 @@
       max-width: 40vw;
       height: 100vh;
       margin-left: auto;
-      padding: 20px;
+      padding: 40px;
       display: block;
     }
   }
