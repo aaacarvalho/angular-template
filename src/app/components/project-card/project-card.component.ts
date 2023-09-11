@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
+import { ChartComponent } from 'ng-apexcharts';
+import { ProjectRepository } from 'src/app/repositories/project.repository';
 
 @Component({
   selector: 'component-project-card',
@@ -6,23 +8,37 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./project-card.style.scss'],
 })
 export class ProjectCardComponent {
-  overlay = false;
-  details = false;
-  @Input('project') project: Record<string, any> = {};
+  showInfo = false;
+  loadingDetails = true;
+  showDetailsDrawer = false;
+  chartOptions: any;
+  projectDetails = {};
 
-  showOverlay(): void {
-    this.overlay = true;
+  @Input('project') project!: Record<string, any>;
+  @ViewChild('chart') chart!: ChartComponent;
+
+  constructor(private readonly projectRepository: ProjectRepository) {
+    this.chartOptions = {
+      series: [55, 30, 15],
+      labels: ['Concluído', 'Em andamento', 'A fazer'],
+      chart: {
+        type: 'donut',
+      },
+      dataLabels: {
+        enabled: false,
+      },
+    };
   }
 
-  hideOverlay(): void {
-    this.overlay = false;
-  }
-
-  showDetails(): void {
-    this.details = true;
+  setInfoVisibility(value: boolean) {
+    this.showInfo = value;
   }
 
   hideDetails(value: boolean): void {
-    this.details = value;
+    this.showDetailsDrawer = value;
+  }
+
+  showDetails(): void {
+    return;
   }
 }

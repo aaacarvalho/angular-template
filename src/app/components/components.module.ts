@@ -9,8 +9,11 @@ import { InputComponent } from './input/input.component';
 import { DrawerComponent } from './drawer/drawer.component';
 import { NotificationComponent } from './notification/notification.component';
 import { ProjectCardComponent } from './project-card/project-card.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { UserRepository } from '../repositories/user.repository';
 
 @NgModule({
+  providers: [UserRepository],
   declarations: [
     SidebarComponent,
     ButtonComponent,
@@ -21,7 +24,7 @@ import { ProjectCardComponent } from './project-card/project-card.component';
     NotificationComponent,
     ProjectCardComponent,
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule, NgApexchartsModule],
   exports: [
     SidebarComponent,
     ButtonComponent,

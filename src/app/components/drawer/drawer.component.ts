@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
 
 @Component({
   selector: 'component-drawer',
@@ -8,8 +15,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class DrawerComponent {
   @Input('collapsed') collapsed = true;
   @Output() drawerCollapsed = new EventEmitter<boolean>();
+  @ViewChild('drawer') drawer!: ElementRef;
 
   close(): void {
-    this.drawerCollapsed.emit(false);
+    this.drawerCollapsed.emit(true);
   }
 }

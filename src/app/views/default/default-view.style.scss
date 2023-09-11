@@ -1,6 +1,7 @@
 .dashboard {
   display: flex;
   background-color: #f4f4f4;
+  min-height: 100vh;
 }
 
 .container-wrapper {
@@ -8,7 +9,6 @@
   width: 100%;
   
   .content {
-    max-height: 100%;
     overflow: scroll;
   }
 }

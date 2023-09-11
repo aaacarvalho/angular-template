@@ -7,6 +7,7 @@
       [icon]="'assets/icons/search.svg'"
       (inputChangeEvent)="searchFor($event)"
     ></component-input>
+    <component-button [label]="'Criar projeto +'"></component-button>
   </div>
   <ul class="project-list">
     <ng-template *ngIf="loading; then loaderTemplate else projectsTemplate"></ng-template>

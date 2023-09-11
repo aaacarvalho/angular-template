@@ -11,7 +11,7 @@
   .description {
     margin: 15px 0px;
     padding-left: 20px;
-    flex: 0 0 30%;
+    flex: 0 0 20%;
 
     p {
       font-size: 20px;
@@ -21,6 +21,12 @@
     small {
       font-size: 15px;
       color: #888;
+    }
+  }
+
+  .dates {
+    apx-chart {
+      height: 80%
     }
   }
 
@@ -48,7 +54,7 @@
 
   .overlay {
     position: absolute;
-    width: 40%;
+    width: 50%;
     top: 0px;
     height: 100%;
     background-color: rgb(40, 82, 43);
@@ -65,7 +71,7 @@
     }
 
     &--closed {
-      right: -40%;
+      right: -50%;
     }
   }
 }

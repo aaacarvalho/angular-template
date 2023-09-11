@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { UserRepository } from 'src/app/repositories/user.repository';
 
 @Component({
   selector: 'component-login-form',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./login-form.style.scss'],
 })
 export class LoginFormComponent {
-  constructor(private readonly httpClient: HttpClient) {}
+  constructor(private readonly userRepository: UserRepository) {}
 
   email = '';
   password = '';
@@ -22,13 +23,6 @@ export class LoginFormComponent {
 
   async submit(event: Event): Promise<void> {
     event.preventDefault();
-    const response = await this.httpClient
-      .post('https://54.88.119.168.nip.io/api/login', {
-        email: this.email,
-        password: this.password,
-      })
-      .subscribe((res) => console.log(res));
-
-    console.log(response);
+    await this.userRepository.authenticate(this.email, this.password);
   }
 }

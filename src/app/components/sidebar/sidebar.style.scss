@@ -1,11 +1,20 @@
 @import 'colors';
 
+.sidebar-wrapper {
+  width: 260px;
+  z-index: 1000;
+
+  &--collapsed {
+    width: 70px;
+  }
+}
+
 .component-sidebar {
   height: 100vh;
   padding: 10px;
   display: inline-block;
   text-align: center;
-  position: sticky;
+  position: fixed;
   z-index: 1000;
 
   background-color: $primary-color;

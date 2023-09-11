@@ -7,8 +7,10 @@ import { routes } from './routes';
 import { DefaultView } from './default/default-view.component';
 import { ProjectsView } from './projects/projects-view.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { ProjectRepository } from '../repositories/project.repository';
 
 @NgModule({
+  providers: [ProjectRepository],
   declarations: [LoginView, DefaultView, ProjectsView],
   imports: [
     BrowserModule,

@@ -1,16 +1,16 @@
 <li class="project-card">
-  <div class="description" (click)="hideOverlay()">
+  <div class="description" (click)="setInfoVisibility(false)">
     <small>Programa {{ project.programName }}</small>
     <p>{{ project.propertyName }}</p>
     <small>Alvaro Carvalho</small>
   </div>
-  <div class="dates" (click)="hideOverlay()">
-    <p>Iniciado em: {{ project.createdAt }}</p>
+  <div class="dates" (click)="setInfoVisibility(false)">
+    <ng-template *ngTemplateOutlet="miniChart"></ng-template>
   </div>
-  <div class="status" (click)="hideOverlay()">
+  <div class="status" (click)="setInfoVisibility(false)">
     <p>Status: Em atraso</p>
   </div>
-  <div class="actions" (click)="hideOverlay()">
+  <div class="actions" (click)="setInfoVisibility(false)">
     <component-button
       label="Atividades"
       [type]="'light'"
@@ -25,16 +25,23 @@
       (onClickEvent)="showDetails()"
     ></component-button>
   </div>  
-  <div class="info" (click)="showOverlay()">
+  <div class="info" (click)="setInfoVisibility(true)">
     <img src="assets/icons/dots.svg" />
   </div>    
-  <div class="overlay" [ngClass]="overlay ? 'overlay--open' : 'overlay--closed'">
+  <div class="overlay" [ngClass]="showInfo ? 'overlay--open' : 'overlay--closed'">
     <p>Contrato {{ project.contractNumber }}</p>
     <p>-</p>
-    <p>Total recebido: R$ 45.987,23</p>
+    <p>Total do projeto: R$ 45.987,23</p>
+    <p>-</p>
+    <p>Total de parcelas pagas R$ 15.231,45</p>
   </div>
 </li>
 
-<component-drawer [collapsed]="!details" (drawerCollapsed)="hideDetails($event)">
-  <h1>Project {{ project.propertyName }}</h1>
-</component-drawer>
+<ng-template #miniChart>
+  <apx-chart
+    [series]="chartOptions.series"
+    [chart]="chartOptions.chart"
+    [dataLabels]="chartOptions.dataLabels"
+    [labels]="chartOptions.labels"
+  ></apx-chart>
+</ng-template>

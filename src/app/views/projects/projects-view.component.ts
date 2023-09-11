@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { ProjectRepository } from 'src/app/repositories/project.repository';
 
 @Component({
   selector: 'view-projects',
@@ -11,23 +11,13 @@ export class ProjectsView {
   currentProjects: Record<string, any>[] = [];
   totalProjects: Record<string, any>[] = [];
 
-  constructor(private readonly httpClient: HttpClient) {}
+  constructor(private readonly projectRepository: ProjectRepository) {}
 
   async ngOnInit(): Promise<void> {
-    const response = await this.httpClient
-      .get('https://54.88.119.168.nip.io/api/projects', {
-        headers: {
-          Authorization:
-            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc4YjhhNjExLTY5MmQtNDFkOC1hMjcxLWQ4NTYxNTA3ZjZlNSIsImlhdCI6MTY5NDEyODk3NywiZXhwIjoxNjk0MjE1Mzc3fQ.QFn95qMFRhIDj-5C7BE6yFdvn69iam-rwNwuhGCsQgc',
-        },
-      })
-      .subscribe((res: any) => {
-        this.currentProjects = res.projects;
-        this.totalProjects = res.projects;
-        this.loading = false;
-      });
-
-    console.log(response);
+    const response: any = await this.projectRepository.list();
+    this.currentProjects = response.projects;
+    this.totalProjects = response.projects;
+    this.loading = false;
   }
 
   searchFor(value: string): void {
