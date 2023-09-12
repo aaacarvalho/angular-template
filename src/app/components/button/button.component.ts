@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class ButtonComponent {
   @Input() label: string = '';
   @Input() loading: boolean = false;
-  @Input() type: 'dark' | 'light' = 'dark';
+  @Input() type: 'dark' | 'light' | 'white' = 'dark';
 
   @Output() onClickEvent = new EventEmitter<Event>();
 

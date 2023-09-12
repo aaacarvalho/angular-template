@@ -4,13 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ButtonComponent } from './button/button.component';
 import { LogoComponent } from './logo/logo.component';
-import { LoginFormComponent } from './login-form/login-form.component';
 import { InputComponent } from './input/input.component';
 import { DrawerComponent } from './drawer/drawer.component';
 import { NotificationComponent } from './notification/notification.component';
-import { ProjectCardComponent } from './project-card/project-card.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { UserRepository } from '../repositories/user.repository';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @NgModule({
   providers: [UserRepository],
@@ -18,21 +17,18 @@ import { UserRepository } from '../repositories/user.repository';
     SidebarComponent,
     ButtonComponent,
     LogoComponent,
-    LoginFormComponent,
     InputComponent,
     DrawerComponent,
     NotificationComponent,
-    ProjectCardComponent,
   ],
-  imports: [BrowserModule, NgApexchartsModule],
+  imports: [BrowserModule, NgApexchartsModule, NgxSkeletonLoaderModule],
   exports: [
     SidebarComponent,
     ButtonComponent,
-    LoginFormComponent,
+    LogoComponent,
+    InputComponent,
     DrawerComponent,
     NotificationComponent,
-    ProjectCardComponent,
-    InputComponent,
   ],
 })
 export class ComponentsModule {}

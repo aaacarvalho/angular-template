@@ -8,6 +8,9 @@ import { DefaultView } from './default/default-view.component';
 import { ProjectsView } from './projects/projects-view.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { ProjectRepository } from '../repositories/project.repository';
+import { GeneralWidgetsModule } from '../widgets/general/general-widgets.module';
+import { LoginWidgetsModule } from '../widgets/login/login-widgets.module';
+import { ProjectWidgetsModule } from '../widgets/project/project-widgets.module';
 
 @NgModule({
   providers: [ProjectRepository],
@@ -17,6 +20,9 @@ import { ProjectRepository } from '../repositories/project.repository';
     ComponentsModule,
     RouterModule.forRoot(routes),
     NgxSkeletonLoaderModule,
+    GeneralWidgetsModule,
+    LoginWidgetsModule,
+    ProjectWidgetsModule,
   ],
   exports: [RouterModule],
 })

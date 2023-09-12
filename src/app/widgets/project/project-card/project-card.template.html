@@ -5,7 +5,7 @@
     <small>Alvaro Carvalho</small>
   </div>
   <div class="dates" (click)="setInfoVisibility(false)">
-    <ng-template *ngTemplateOutlet="miniChart"></ng-template>
+    <component-donut-chart></component-donut-chart>
   </div>
   <div class="status" (click)="setInfoVisibility(false)">
     <p>Status: Em atraso</p>
@@ -22,7 +22,7 @@
     <component-button
       [label]="'Info'"
       [type]="'light'"
-      (onClickEvent)="showDetails()"
+      (onClickEvent)="openDetailsDrawer()"
     ></component-button>
   </div>  
   <div class="info" (click)="setInfoVisibility(true)">
@@ -37,11 +37,7 @@
   </div>
 </li>
 
-<ng-template #miniChart>
-  <apx-chart
-    [series]="chartOptions.series"
-    [chart]="chartOptions.chart"
-    [dataLabels]="chartOptions.dataLabels"
-    [labels]="chartOptions.labels"
-  ></apx-chart>
-</ng-template>
+
+<component-drawer [collapsed]="!showDetailsDrawer" (drawerCollapsed)="closeDetailsDrawer()">
+  <component-project-info [loading]="loadingDetails" [project]="project"></component-project-info>
+</component-drawer>
