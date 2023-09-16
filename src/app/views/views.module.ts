@@ -11,10 +11,12 @@ import { ProjectRepository } from '../repositories/project.repository';
 import { GeneralWidgetsModule } from '../widgets/general/general-widgets.module';
 import { LoginWidgetsModule } from '../widgets/login/login-widgets.module';
 import { ProjectWidgetsModule } from '../widgets/project/project-widgets.module';
+import { ProducersView } from './producers/producers-view.component';
+import { ProducerRepository } from '../repositories/producer.repository';
 
 @NgModule({
-  providers: [ProjectRepository],
-  declarations: [LoginView, DefaultView, ProjectsView],
+  providers: [ProjectRepository, ProducerRepository],
+  declarations: [LoginView, DefaultView, ProjectsView, ProducersView],
   imports: [
     BrowserModule,
     ComponentsModule,

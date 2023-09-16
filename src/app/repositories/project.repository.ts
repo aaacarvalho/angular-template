@@ -3,7 +3,7 @@ import { Repository } from './repository';
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: 'project-repository',
+  selector: 'repository-project',
 })
 export class ProjectRepository extends Repository {
   constructor(httpClient: HttpClient) {

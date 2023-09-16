@@ -22,8 +22,10 @@ export class ProjectsView {
 
   searchFor(value: string): void {
     value.length >= 3
-      ? (this.currentProjects = this.totalProjects.filter((project) =>
-          project.propertyName.toLowerCase().includes(value)
+      ? (this.currentProjects = this.totalProjects.filter(
+          (project) =>
+            project.propertyName.toLowerCase().startsWith(value) ||
+            project.programName.toLowerCase().startsWith(value)
         ))
       : (this.currentProjects = this.totalProjects);
   }

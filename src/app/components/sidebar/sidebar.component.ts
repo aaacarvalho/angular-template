@@ -12,6 +12,11 @@ export class SidebarComponent {
   constructor(private router: Router) {}
 
   menu = [
+    {
+      label: 'Produtores',
+      icon: 'assets/icons/roadwork.svg',
+      path: 'produtores',
+    },
     { label: 'Projetos', icon: 'assets/icons/project.svg', path: 'projetos' },
     { label: 'Mudas', icon: 'assets/icons/leaf.svg', path: 'mudas' },
     { label: 'Usuários', icon: 'assets/icons/user.svg', path: 'usuarios' },

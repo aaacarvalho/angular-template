@@ -1,0 +1,29 @@
+<view-default>
+  <div class="section-header">
+    <h1>Produtores</h1>
+    <component-input
+      [type]="'text'"
+      [label]="'Pesquisar'"
+      [icon]="'assets/icons/search.svg'"
+    ></component-input>
+    <component-button [label]="'Cadastrar produtor +'"></component-button>
+  </div>
+  <ng-template *ngIf="loading; then loaderTemplate else producersTemplate">
+  </ng-template>
+</view-default>
+
+<ng-template #loaderTemplate>
+  <div class="loader-wrapper">
+    <ngx-skeleton-loader 
+      [theme]="{ height: '150px', background: '#ddd', width: '30%', 'margin-bottom': '30px' }" 
+      *ngFor="let _ of [].constructor(12)"  
+    >
+    </ngx-skeleton-loader>
+  </div>
+</ng-template>
+
+<ng-template #producersTemplate>
+  <div class="producers-list">
+
+  </div>
+</ng-template>

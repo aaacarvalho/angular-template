@@ -1,0 +1,20 @@
+.section-header {
+  display: flex;
+  justify-content: space-between;
+
+  component-input {
+    width: 550px;
+  }
+}
+
+.loader-wrapper {
+  margin-top: 80px;
+
+  ngx-skeleton-loader:nth-child(2),
+  ngx-skeleton-loader:nth-child(5),
+  ngx-skeleton-loader:nth-child(8),
+  ngx-skeleton-loader:nth-child(11) {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
