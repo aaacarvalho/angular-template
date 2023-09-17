@@ -7,14 +7,14 @@ import { ProducerRepository } from 'src/app/repositories/producer.repository';
   styleUrls: ['./producers-view.style.scss'],
 })
 export class ProducersView {
-  loading = true;
+  loading = false;
   producers: Record<string, any>[] = [];
 
   constructor(private readonly producersRepository: ProducerRepository) {}
 
   async ngOnInit(): Promise<void> {
-    const { producers } = await this.producersRepository.list();
-    this.producers = producers;
-    this.loading = false;
+    // const { producers } = await this.producersRepository.list();
+    // this.producers = producers;
+    // this.loading = false;
   }
 }

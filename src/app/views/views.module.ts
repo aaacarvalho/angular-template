@@ -13,6 +13,7 @@ import { LoginWidgetsModule } from '../widgets/login/login-widgets.module';
 import { ProjectWidgetsModule } from '../widgets/project/project-widgets.module';
 import { ProducersView } from './producers/producers-view.component';
 import { ProducerRepository } from '../repositories/producer.repository';
+import { WidgetsModule } from '../widgets/widgets.module';
 
 @NgModule({
   providers: [ProjectRepository, ProducerRepository],
@@ -22,9 +23,7 @@ import { ProducerRepository } from '../repositories/producer.repository';
     ComponentsModule,
     RouterModule.forRoot(routes),
     NgxSkeletonLoaderModule,
-    GeneralWidgetsModule,
-    LoginWidgetsModule,
-    ProjectWidgetsModule,
+    WidgetsModule,
   ],
   exports: [RouterModule],
 })

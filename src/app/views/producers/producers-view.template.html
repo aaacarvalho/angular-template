@@ -10,6 +10,9 @@
   </div>
   <ng-template *ngIf="loading; then loaderTemplate else producersTemplate">
   </ng-template>
+  <component-drawer [collapsed]="false">
+    <widget-producer-form></widget-producer-form>
+  </component-drawer>
 </view-default>
 
 <ng-template #loaderTemplate>
@@ -24,6 +27,6 @@
 
 <ng-template #producersTemplate>
   <div class="producers-list">
-
+    <widget-producer-card *ngFor="let _ of [].constructor(12)"></widget-producer-card>
   </div>
 </ng-template>
