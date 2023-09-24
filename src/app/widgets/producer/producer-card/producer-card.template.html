@@ -2,18 +2,29 @@
   <button class="redirect-link">
     <img src="assets/icons/share.svg" />
   </button>
-  <div class="producer-card__image" style="background: url('assets/images/user.jpg'); background-position: center; background-size: cover">
-  </div>
+  <ng-template *ngIf="producer.gender === 'male' ; then maleUser; else femaleUser">
+
+  </ng-template>
   <div class="producer-card__info">
-    <h3>Alvaro de Azeredo Araújo de Carvalho</h3>
+    <h3>{{ producer.user.name }}</h3>
     <p>CPF: 160.371.957-14</p>
     <div class="producer-card__info__phone">
       <p>(22) 99736-6361</p>
-      <img src="assets/icons/whatsapp.svg" />
+      <img src="assets/icons/whatsapp.svg" (click)="openWppWeb('+5522997366361')"/>
     </div>
     <div class="producer-card__info__email">
-      <p>alvaro.azeredo@hotmail.com</p>
-      <img src="assets/icons/gmail.svg" />
+      <p>{{ email }}</p>
+      <img src="assets/icons/gmail.svg" (click)="sendEmail()"/>
     </div>
   </div>
 </div>
+
+<ng-template #maleUser>
+  <div class="producer-card__image" style="background: url('assets/images/user.jpg'); background-position: center; background-size: cover">
+  </div>
+</ng-template>
+
+<ng-template #femaleUser>
+  <div class="producer-card__image" style="background: url('assets/images/female-user.png'); background-position: center; background-size: cover">
+  </div>
+</ng-template>

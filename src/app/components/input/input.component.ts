@@ -6,7 +6,14 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./input.style.scss'],
 })
 export class InputComponent {
-  @Input() type: 'text' | 'email' | 'password' | 'phone' = 'text';
+  @Input() type:
+    | 'text'
+    | 'email'
+    | 'password'
+    | 'phone'
+    | 'date'
+    | 'number'
+    | 'file' = 'text';
   @Input() label: string = '';
   @Input() value: string = '';
   @Input() icon: string = '';

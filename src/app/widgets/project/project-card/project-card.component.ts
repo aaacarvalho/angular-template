@@ -23,7 +23,9 @@ export class ProjectCardComponent {
   async openDetailsDrawer(): Promise<void> {
     this.loadingDetails = true;
     this.showDetailsDrawer = true;
-    await this.projectRepository.get(this.project.id);
+    try {
+      await this.projectRepository.get(this.project.id);
+    } catch (e) {}
     this.loadingDetails = false;
   }
 

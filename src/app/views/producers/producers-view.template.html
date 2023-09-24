@@ -5,12 +5,13 @@
       [type]="'text'"
       [label]="'Pesquisar'"
       [icon]="'assets/icons/search.svg'"
+      (inputChangeEvent)="searchFor($event)"
     ></component-input>
-    <component-button [label]="'Cadastrar produtor +'"></component-button>
+    <component-button [label]="'Cadastrar produtor +'" (onClickEvent)="openFormDrawer()"></component-button>
   </div>
   <ng-template *ngIf="loading; then loaderTemplate else producersTemplate">
   </ng-template>
-  <component-drawer [collapsed]="false">
+  <component-drawer [collapsed]="!showFormDrawer" (drawerCollapsed)="closeFormDrawer()">
     <widget-producer-form></widget-producer-form>
   </component-drawer>
 </view-default>
@@ -27,6 +28,6 @@
 
 <ng-template #producersTemplate>
   <div class="producers-list">
-    <widget-producer-card *ngFor="let _ of [].constructor(12)"></widget-producer-card>
+    <widget-producer-card *ngFor="let producer of currentProducers" [producer]="producer"></widget-producer-card>
   </div>
 </ng-template>

@@ -24,7 +24,7 @@ export class ProjectsView {
     value.length >= 3
       ? (this.currentProjects = this.totalProjects.filter(
           (project) =>
-            project.propertyName.toLowerCase().startsWith(value) ||
+            project.propertyName.toLowerCase().includes(value) ||
             project.programName.toLowerCase().startsWith(value)
         ))
       : (this.currentProjects = this.totalProjects);

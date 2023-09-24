@@ -1,3 +1,58 @@
-<form>
-  <h1>Cadastrar produtor</h1>
+<h1>Cadastrar Produtor</h1>
+<form class="producer-form">
+  <h2>Informações Pessoais</h2>
+  <div class="input-wrapper">
+    <component-input [label]="'Nome*'"></component-input>
+  </div>
+  <div class="input-wrapper">
+    <component-input [label]="'Email*'"></component-input>
+    <component-input [label]="'Telefone*'"></component-input>
+  </div>
+  <div class="input-wrapper">
+    <component-input [label]="'CPF*'"></component-input>
+    <component-input [label]="'RG*'"></component-input>
+  </div>
+  <div class="input-wrapper">
+    <component-input [label]="'Órgão emissor'"></component-input>
+    <component-input [label]="'Data de emissão'" [type]="'date'"></component-input>
+    <component-input [label]="'Data de nascimento'" [type]="'date'"></component-input>
+  </div>
+  <div class="input-wrapper">
+    <component-input [label]="'Ocupação'"></component-input>
+    <component-input [label]="'Estado civil'"></component-input>
+    <component-input [label]="'Gênero'"></component-input>
+  </div>
+  <div class="input-wrapper">
+    <component-input [label]="'Foto de perfil'" [type]="'file'"></component-input>
+  </div>
+  <h2>Endereço</h2>
+  <div class="input-wrapper">
+    <component-input [label]="'Rua'" [class]="'twothirds'"></component-input>
+    <component-input [label]="'Nº'"></component-input>
+  </div>
+  <div class="input-wrapper">
+    <component-input [label]="'Bairro'"></component-input>
+    <component-input [label]="'Cidade'"></component-input>
+  </div>
+  <div class="input-wrapper">
+    <component-input [label]="'Comunidade'" [class]="'half'"></component-input>
+    <component-input [label]="'CEP'"></component-input>
+    <component-input [label]="'UF'"></component-input>
+  </div>
+  <div class="input-wrapper">
+    <component-button [label]="'Salvar'"></component-button>
+  </div>
+
+  <h2>Dados bancários</h2>
+  <div class="input-wrapper">
+    <component-input [label]="'Banco'"></component-input>
+    <component-input [label]="'Tipo de conta'"></component-input>
+  </div>
+  <div class="input-wrapper">
+    <component-input [label]="'Agência'"></component-input>
+    <component-input [label]="'Conta'"></component-input>
+  </div>
+  <div class="input-wrapper">
+    <component-button [label]="'Salvar'"></component-button>
+  </div>
 </form>
