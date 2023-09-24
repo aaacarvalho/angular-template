@@ -160,7 +160,7 @@
     symbol-observable "4.0.0"
     yargs "17.7.2"
 
-"@angular/common@^16.0.0 || ^17.0.0", "@angular/common@^16.1.0", "@angular/common@>=13.0.0", "@angular/common@>=16.0.0", "@angular/common@16.1.3":
+"@angular/common@^16.0.0 || ^17.0.0", "@angular/common@^16.1.0", "@angular/common@>=13.0.0", "@angular/common@>=14.0.0", "@angular/common@>=16.0.0", "@angular/common@16.1.3":
   version "16.1.3"
   resolved "https://registry.npmjs.org/@angular/common/-/common-16.1.3.tgz"
   integrity sha512-ZzJ6EwQHUkiZYV0zH/UxyUYW5uxomsyk7tdtqZIxAR5m2ktYkQ5XlqgPjBO8voF54Rs5Ot43RkPCLesbZyJDsw==
@@ -188,14 +188,14 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/core@^16.0.0 || ^17.0.0", "@angular/core@^16.1.0", "@angular/core@>=13.0.0", "@angular/core@>=16.0.0", "@angular/core@16.1.3":
+"@angular/core@^16.0.0 || ^17.0.0", "@angular/core@^16.1.0", "@angular/core@>=13.0.0", "@angular/core@>=14.0.0", "@angular/core@>=16.0.0", "@angular/core@16.1.3":
   version "16.1.3"
   resolved "https://registry.npmjs.org/@angular/core/-/core-16.1.3.tgz"
   integrity sha512-yhRo9hVS8KhfcEgzciWuRWF4Pnnko98bmSJTqd7u8Kys6z3Uj0qgXMssXHIPUALe3mQKjVkdSZPLIZ9/CaVn/Q==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/forms@^16.0.0 || ^17.0.0", "@angular/forms@^16.1.0":
+"@angular/forms@^16.0.0 || ^17.0.0", "@angular/forms@^16.1.0", "@angular/forms@>=14.0.0":
   version "16.1.3"
   resolved "https://registry.npmjs.org/@angular/forms/-/forms-16.1.3.tgz"
   integrity sha512-9tJHgoi/Jmeo30zfnReVZWFcd1WthR+QwYUNwPev+ys58u1mB0cDGORvROySmC2YUyXFSpXt8sxwyWCkYvaV2w==
@@ -5043,6 +5043,13 @@ ng-apexcharts@^1.8.0:
   integrity sha512-NwJuMLHoLm52LSzM08RXV6oOOTyUYREAV53WHVGs+L2qi8UWbxCz19hX0kk+F/xFLEhhuiLegO3T1v30jLbKSQ==
   dependencies:
     tslib "^2.0.0"
+
+ngx-mask@^16.3.7:
+  version "16.3.7"
+  resolved "https://registry.npmjs.org/ngx-mask/-/ngx-mask-16.3.7.tgz"
+  integrity sha512-BiQMP5tbJdUP/BSSHI8Ucmhr/CsT6vC4TA1U1PyT3AIFvLiwwbeJ2ch5TlehXu2UoV/5CCwzjgU00UNhWeTnlw==
+  dependencies:
+    tslib "^2.3.0"
 
 ngx-skeleton-loader@^8.0.1:
   version "8.1.0"
