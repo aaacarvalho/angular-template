@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Observable, lastValueFrom, take } from 'rxjs';
+import { config } from 'dotenv';
+config();
 
 export abstract class Repository {
-  protected baseUrl = 'http://localhost:3000/api';
+  protected baseUrl = `${process.env.API_URL}/api`;
 
   constructor(protected readonly httpClient: HttpClient) {}
 
