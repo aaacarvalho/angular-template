@@ -5098,6 +5098,13 @@ ng-apexcharts@^1.8.0:
   dependencies:
     tslib "^2.0.0"
 
+ngx-mask@^16.3.7:
+  version "16.3.7"
+  resolved "https://registry.yarnpkg.com/ngx-mask/-/ngx-mask-16.3.7.tgz#f24f635a58f12ec1d6a58c27a3377835a464ef4a"
+  integrity sha512-BiQMP5tbJdUP/BSSHI8Ucmhr/CsT6vC4TA1U1PyT3AIFvLiwwbeJ2ch5TlehXu2UoV/5CCwzjgU00UNhWeTnlw==
+  dependencies:
+    tslib "^2.3.0"
+
 ngx-skeleton-loader@^8.0.1:
   version "8.1.0"
   resolved "https://registry.npmjs.org/ngx-skeleton-loader/-/ngx-skeleton-loader-8.1.0.tgz"

@@ -17,6 +17,7 @@ export class InputComponent {
   @Input() label: string = '';
   @Input() value: string = '';
   @Input() icon: string = '';
+  @Input() mask: string | null = null;
 
   @Output() inputChangeEvent = new EventEmitter<string>();
 

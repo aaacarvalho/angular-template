@@ -10,6 +10,7 @@ import { NotificationComponent } from './notification/notification.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { UserRepository } from '../repositories/user.repository';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { NgxMaskDirective } from 'ngx-mask';
 
 @NgModule({
   providers: [UserRepository],
@@ -21,7 +22,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     DrawerComponent,
     NotificationComponent,
   ],
-  imports: [BrowserModule, NgApexchartsModule, NgxSkeletonLoaderModule],
+  imports: [BrowserModule, NgApexchartsModule, NgxSkeletonLoaderModule, NgxMaskDirective],
   exports: [
     SidebarComponent,
     ButtonComponent,
@@ -31,4 +32,4 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     NotificationComponent,
   ],
 })
-export class ComponentsModule {}
+export class ComponentsModule { }
