@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { UserRepository } from 'src/app/repositories/user.repository';
 

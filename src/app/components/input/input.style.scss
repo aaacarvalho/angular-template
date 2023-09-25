@@ -2,15 +2,15 @@
 
 .input-container {
   background-color: #FFF;
-  border: 1px solid $light-border;
   padding: 10px;
   border-radius: 3px;
   display: flex;
+  border: 1px solid #ddd;
+  position: relative;
 
   .input {
     outline: none;
     border: none;
-    
     width: 100%;
     font-size: 16px;
   }
@@ -19,5 +19,23 @@
     height: 30px;
     width: 30px;
     margin-right: 15px;
+  }
+
+  &--error {
+    border: 1px solid #F00;
+
+    .input {
+      color: #F00;
+    }
+  }
+
+  .error-message {
+    font-size: 11px;
+    color: #F00;
+    position: absolute;
+    left: 10px;
+    top: -8px;
+    background-color: #FFF;
+    padding: 0px 5px;
   }
 }

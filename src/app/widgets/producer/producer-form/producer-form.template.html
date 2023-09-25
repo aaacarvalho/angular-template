@@ -1,48 +1,47 @@
 <h1>Cadastrar Produtor</h1>
-<form class="producer-form">
+<form class="producer-form" [formGroup]="producerForm" (ngSubmit)="onSubmit()">
   <h2>Informações Pessoais</h2>
   <div class="input-wrapper">
-    <component-input [label]="'Nome*'"></component-input>
+    <component-input [label]="'Nome*'" formControlName="name"></component-input>
   </div>
   <div class="input-wrapper">
-    <component-input [label]="'Email*'"></component-input>
-    <component-input [label]="'Telefone*'" [mask]="'(00) 00000-0000'"></component-input>
+    <component-input [label]="'Email*'" formControlName="email"></component-input>
+    <component-input [label]="'Telefone*'" [mask]="'(00) 00000-0000'" formControlName="phone"></component-input>
   </div>
   <div class="input-wrapper">
-    <component-input [label]="'CPF*'" [mask]="'000.000.000-00'"></component-input>
-    <component-input [label]="'RG*'" [mask]="'00.000.000-00'"></component-input>
+    <component-input [label]="'CPF*'" [mask]="'000.000.000-00'" formControlName="cpf"></component-input>
+    <component-input [label]="'RG*'" [mask]="'00.000.000-00'" formControlName="rg"></component-input>
   </div>
   <div class="input-wrapper">
-    <component-input [label]="'Órgão emissor'"></component-input>
-    <component-input [label]="'Data de emissão'" [type]="'date'"></component-input>
-    <component-input [label]="'Data de nascimento'" [type]="'date'"></component-input>
+    <component-input [label]="'Órgão emissor'" formControlName="orgao"></component-input>
+    <component-input [label]="'Data de emissão'" [type]="'date'" formControlName="emissao"></component-input>
+    <component-input [label]="'Data de nascimento'" [type]="'date'" formControlName="nascimento"></component-input>
   </div>
   <div class="input-wrapper">
-    <component-input [label]="'Ocupação'"></component-input>
-    <component-input [label]="'Estado civil'"></component-input>
-    <component-input [label]="'Gênero'"></component-input>
-  </div>
-  <div class="input-wrapper">
-    <component-input [label]="'Foto de perfil'" [type]="'file'"></component-input>
+    <component-input [label]="'Ocupação'" formControlName="ocupacao"></component-input>
+    <component-input [label]="'Estado civil'" formControlName="estadoCivil"></component-input>
+    <component-input [label]="'Gênero'" formControlName="gender"></component-input>
   </div>
   <h2>Endereço</h2>
   <div class="input-wrapper">
-    <component-input [label]="'Rua'" [class]="'twothirds'"></component-input>
-    <component-input [label]="'Nº'"></component-input>
+    <component-input [label]="'Rua'" [class]="'twothirds'" formControlName="street"></component-input>
+    <component-input [label]="'Nº'" formControlName="number"></component-input>
   </div>
   <div class="input-wrapper">
-    <component-input [label]="'Bairro'"></component-input>
-    <component-input [label]="'Cidade'"></component-input>
+    <component-input [label]="'Bairro'" formControlName="neighborhood"></component-input>
+    <component-input [label]="'Cidade'" formControlName="city"></component-input>
   </div>
   <div class="input-wrapper">
-    <component-input [label]="'Comunidade'" [class]="'half'"></component-input>
-    <component-input [label]="'CEP'"></component-input>
-    <component-input [label]="'UF'"></component-input>
+    <component-input [label]="'Comunidade'" [class]="'half'" formControlName="comunity"></component-input>
+    <component-input [label]="'CEP'" formControlName="zipcode"></component-input>
+    <component-input [label]="'UF'" formControlName="uf"></component-input>
   </div>
   <div class="input-wrapper">
     <component-button [label]="'Salvar'"></component-button>
   </div>
+</form>
 
+<form class="producer-form">
   <h2>Dados bancários</h2>
   <div class="input-wrapper">
     <component-input [label]="'Banco'"></component-input>

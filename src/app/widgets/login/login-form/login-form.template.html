@@ -2,20 +2,16 @@
   <component-logo></component-logo>
   <div class="input-wrapper">
     <component-input 
-      [value]="email"
       [type]="'email'"
       [label]="'Email'"
       [icon]="'assets/icons/email.svg'"
-      (inputChangeEvent)="emailChange($event)"
     ></component-input>
   </div>
   <div class="input-wrapper">
     <component-input 
       [label]="'Senha'"
-      [value]="password"
       [type]="'password'"     
       [icon]="'assets/icons/lock.svg'" 
-      (inputChangeEvent)="passwordChange($event)"
     ></component-input>
   </div>
   <div class="button-wrapper">

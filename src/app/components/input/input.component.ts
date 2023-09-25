@@ -1,11 +1,19 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input, forwardRef } from '@angular/core';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
 @Component({
   selector: 'component-input',
   templateUrl: './input.template.html',
   styleUrls: ['./input.style.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => InputComponent),
+      multi: true,
+    },
+  ],
 })
-export class InputComponent {
+export class InputComponent implements ControlValueAccessor {
   @Input() type:
     | 'text'
     | 'email'
@@ -15,13 +23,39 @@ export class InputComponent {
     | 'number'
     | 'file' = 'text';
   @Input() label: string = '';
-  @Input() value: string = '';
   @Input() icon: string = '';
   @Input() mask: string | null = null;
+  @Input() error: string | null = null;
 
-  @Output() inputChangeEvent = new EventEmitter<string>();
+  onTouched: any = () => {};
+  value: any = '';
+  disabled = false;
 
-  onChange(event: any) {
-    this.inputChangeEvent.emit(event.target.value);
+  onChange: any = (value: any) => {
+    this.value = value;
+  };
+
+  onInputChange(event: any): void {
+    const value = this.mask
+      ? event.target.value.replace(/\D+/g, '')
+      : event.target.value;
+
+    this.onChange(value);
+  }
+
+  writeValue(value: any): void {
+    this.value = value;
+  }
+
+  registerOnChange(onChangeFunction: Function): void {
+    this.onChange = onChangeFunction;
+  }
+
+  registerOnTouched(onTouchedFunction: any): void {
+    this.onTouched = onTouchedFunction;
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
   }
 }

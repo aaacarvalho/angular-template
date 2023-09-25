@@ -1,10 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Observable, lastValueFrom, take } from 'rxjs';
-import { config } from 'dotenv';
-config();
 
 export abstract class Repository {
-  protected baseUrl = `${process.env.API_URL}/api`;
+  protected baseUrl =
+    'https://mvgi-backend-stage-70741a31b8c2.herokuapp.com/api';
 
   constructor(protected readonly httpClient: HttpClient) {}
 
