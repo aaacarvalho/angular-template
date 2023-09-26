@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { UserRepository } from 'src/app/repositories/user.repository';
 
 @Component({
@@ -7,21 +8,17 @@ import { UserRepository } from 'src/app/repositories/user.repository';
   styleUrls: ['./login-form.style.scss'],
 })
 export class LoginFormComponent {
+  loginForm = new FormGroup({
+    email: new FormControl(),
+    password: new FormControl(),
+  });
+
   constructor(private readonly userRepository: UserRepository) {}
 
-  email = '';
-  password = '';
-
-  emailChange(value: string): void {
-    this.email = value;
-  }
-
-  passwordChange(value: string) {
-    this.password = value;
-  }
-
-  async submit(event: Event): Promise<void> {
-    event.preventDefault();
-    await this.userRepository.authenticate(this.email, this.password);
+  async onSubmit() {
+    await this.userRepository.authenticate(
+      this.loginForm.value.email,
+      this.loginForm.value.password
+    );
   }
 }

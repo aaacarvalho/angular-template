@@ -29,6 +29,6 @@ export class ProducerFormWidget {
   });
 
   onSubmit() {
-    console.log(this.producerForm.value);
+    console.log(this.producerForm);
   }
 }

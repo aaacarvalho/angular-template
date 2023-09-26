@@ -1,10 +1,11 @@
-<form class="login-form">
+<form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <component-logo></component-logo>
   <div class="input-wrapper">
     <component-input 
       [type]="'email'"
       [label]="'Email'"
       [icon]="'assets/icons/email.svg'"
+      formControlName="email"
     ></component-input>
   </div>
   <div class="input-wrapper">
@@ -12,11 +13,12 @@
       [label]="'Senha'"
       [type]="'password'"     
       [icon]="'assets/icons/lock.svg'" 
+      formControlName="password"
     ></component-input>
   </div>
   <div class="button-wrapper">
     <component-button [label]="'Sair'"></component-button>
-    <component-button [label]="'Login'" (onClickEvent)="submit($event)"></component-button>
+    <component-button [label]="'Login'"></component-button>
   </div>
   <a class="forgot-password">Esqueceu sua senha?</a>
 </form>
