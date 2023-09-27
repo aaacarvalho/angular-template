@@ -1,0 +1,14 @@
+<div class="stage-card">
+  <h3>Título da atividade</h3>
+  <div class="activities" cdkDropList [cdkDropListData]="activities" (cdkDropListDropped)="drop($event)">
+    <div class="activity" *ngFor="let activity of activities" cdkDrag>
+      <img src="assets/icons/drag.svg">
+      <p class="activity__description">{{ activity.description }}</p>
+      <ng-template [ngIf]="activity.checkedAt">
+        <p class="activity__checkedAt">Concluída em {{ activity.checkedAt.toLocaleDateString() }} às {{ activity.checkedAt.toLocaleTimeString() }}</p>
+      </ng-template>
+      <input type="checkbox" [checked]="activity.checked" (change)="toggleActivity(activity.id, !activity.checked)"/>
+    </div>
+  </div>
+  <component-progress-bar [progress]="progress"></component-progress-bar>
+</div>

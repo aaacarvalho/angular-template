@@ -11,6 +11,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { UserRepository } from '../repositories/user.repository';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { NgxMaskDirective } from 'ngx-mask';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 
 @NgModule({
   providers: [UserRepository],
@@ -21,8 +22,14 @@ import { NgxMaskDirective } from 'ngx-mask';
     InputComponent,
     DrawerComponent,
     NotificationComponent,
+    ProgressBarComponent,
   ],
-  imports: [BrowserModule, NgApexchartsModule, NgxSkeletonLoaderModule, NgxMaskDirective],
+  imports: [
+    BrowserModule,
+    NgApexchartsModule,
+    NgxSkeletonLoaderModule,
+    NgxMaskDirective,
+  ],
   exports: [
     SidebarComponent,
     ButtonComponent,
@@ -30,6 +37,7 @@ import { NgxMaskDirective } from 'ngx-mask';
     InputComponent,
     DrawerComponent,
     NotificationComponent,
+    ProgressBarComponent,
   ],
 })
-export class ComponentsModule { }
+export class ComponentsModule {}
