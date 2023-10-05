@@ -5,6 +5,7 @@ import { ComponentsModule } from 'src/app/components/components.module';
 import { GeneralWidgetsModule } from '../general/general-widgets.module';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { CommonModule } from '@angular/common';
+import { ProjectListWidget } from './project-list/project-list.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import { CommonModule } from '@angular/common';
     NgxSkeletonLoaderModule,
     CommonModule,
   ],
-  declarations: [ProjectCardWidget, ProjectInfoWidget],
-  exports: [ProjectCardWidget, ProjectInfoWidget],
+  declarations: [ProjectCardWidget, ProjectInfoWidget, ProjectListWidget],
+  exports: [ProjectCardWidget, ProjectInfoWidget, ProjectListWidget],
 })
 export class ProjectWidgetsModule {}

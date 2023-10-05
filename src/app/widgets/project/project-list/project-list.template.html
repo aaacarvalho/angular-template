@@ -1,0 +1,29 @@
+<ng-template *ngIf="loading; then loaderTemplate else projectsTemplate"></ng-template>
+
+<ng-template #projectsTemplate>
+  <ul class="project-list">
+    <widget-project-card *ngFor="let project of projects" [project]="project">
+    </widget-project-card>
+  </ul>
+</ng-template>
+
+<ng-template #loaderTemplate>
+  <div class="loader-container" *ngFor="let _ of [].constructor(5)">
+    <div>
+      <ngx-skeleton-loader [theme]="{ width: '50%', height: '20px', background: '#ddd', margin: '0px' }" ></ngx-skeleton-loader>
+      <ngx-skeleton-loader [theme]="{ height: '30px', background: '#ddd', margin: '0px' }" ></ngx-skeleton-loader>
+      <ngx-skeleton-loader [theme]="{ width: '50%', height: '20px', background: '#ddd', margin: '0px' }" ></ngx-skeleton-loader>
+    </div>
+    <div>
+      <ngx-skeleton-loader [theme]="{ height: '40px', background: '#ddd', margin: '0px' }" ></ngx-skeleton-loader>
+      <ngx-skeleton-loader [theme]="{ height: '40px', background: '#ddd', margin: '0px' }" ></ngx-skeleton-loader>
+    </div>
+    <div>
+      <ngx-skeleton-loader [theme]="{ height: '40px', background: '#ddd', margin: '0px' }" ></ngx-skeleton-loader>
+      <ngx-skeleton-loader [theme]="{ height: '40px', background: '#ddd', margin: '0px' }" ></ngx-skeleton-loader>
+    </div>
+    <div>
+      <ngx-skeleton-loader [theme]="{ height: '90%', background: '#ddd', margin: '0px' }" ></ngx-skeleton-loader>
+    </div>
+  </div>
+</ng-template>
