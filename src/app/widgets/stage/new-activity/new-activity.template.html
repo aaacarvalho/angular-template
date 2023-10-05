@@ -1,0 +1,11 @@
+<div class="activity-item">
+  <img src="assets/icons/drag.svg">
+  <input type="text" class="activity-item__description" (change)="changeDescription($event)" [value]="description"/>
+  <ng-template [ngIf]="canHaveChildren">
+    <div class="checkbox-container">
+      <label>Lista?</label>
+      <input type="checkbox" (change)="changeToList(!isList)" [checked]="isList"/>
+    </div>
+  </ng-template>
+  <component-button [label]="'Adicionar +'" (onClickEvent)="addActivity()"></component-button>
+</div>

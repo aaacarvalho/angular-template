@@ -3,11 +3,11 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { UserRepository } from 'src/app/repositories/user.repository';
 
 @Component({
-  selector: 'component-login-form',
+  selector: 'widget-login-form',
   templateUrl: './login-form.template.html',
   styleUrls: ['./login-form.style.scss'],
 })
-export class LoginFormComponent {
+export class LoginFormWidget {
   loginForm = new FormGroup({
     email: new FormControl(),
     password: new FormControl(),

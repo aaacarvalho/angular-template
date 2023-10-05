@@ -1,0 +1,31 @@
+<div class="activity-item" cdkDrag>
+  <img src="assets/icons/drag.svg">
+  <p class="activity-item__description" [ngClass]="activity.checked ? 'activity-item__description--checked' : '' ">{{ activity.description }}</p>
+    <ng-template [ngIf]="activity.checkedAt">
+      <p class="activity-item__checkedAt">Concluída em {{ activity.checkedAt.toLocaleDateString() }} às {{ activity.checkedAt.toLocaleTimeString() }}</p>
+    </ng-template>
+    <ng-template *ngIf="activity.children; then childrenToggle; else activityCheckbox"></ng-template>
+</div>
+<ng-template [ngIf]="showChildren && activity.children">
+  <div cdkDropList [cdkDropListData]="children" (cdkDropListDropped)="drop($event)" class="children-container">
+    <ng-template [ngIf]="activity.children.length">
+      <div *ngFor="let childActivity of children" class="activity-item activity-item--child" cdkDrag>
+        <img src="assets/icons/drag.svg">
+        <p class="activity-item__description" [ngClass]="childActivity.checked ? 'activity-item__description--checked' : '' ">{{ childActivity.description }}</p>
+        <ng-template [ngIf]="childActivity.checkedAt">
+          <p class="activity-item__checkedAt">Concluída em {{ childActivity.checkedAt.toLocaleDateString() }} às {{ childActivity.checkedAt.toLocaleTimeString() }}</p>
+        </ng-template>
+        <input type="checkbox" [checked]="childActivity.checked" (change)="toggleChildActivity(childActivity.id, !childActivity.checked)"/>
+      </div>
+    </ng-template>
+    <widget-new-activity (activityCreated)="addChildActivity($event)" [canHaveChildren]="false"></widget-new-activity>
+  </div>
+</ng-template>
+
+<ng-template #activityCheckbox>
+  <input type="checkbox" [checked]="activity.checked" (change)="toggleActivity(!activity.checked)"/>
+</ng-template>
+
+<ng-template #childrenToggle>
+  <img src="assets/icons/chevron-left.svg" class="toggle-children" [ngClass]="showChildren ? 'toggle-children--open' : ''" (click)="toggleChildren(!showChildren)"/>
+</ng-template>

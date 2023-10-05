@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { ProjectRepository } from 'src/app/repositories/project.repository';
 
 @Component({
-  selector: 'component-project-card',
+  selector: 'widget-project-card',
   templateUrl: './project-card.template.html',
   styleUrls: ['./project-card.style.scss'],
 })
-export class ProjectCardComponent {
+export class ProjectCardWidget {
   showInfo = false;
   projectDetails = {};
   loadingDetails = false;

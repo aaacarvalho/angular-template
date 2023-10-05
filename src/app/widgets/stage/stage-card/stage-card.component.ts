@@ -1,34 +1,66 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component } from '@angular/core';
+import { Component, SimpleChanges } from '@angular/core';
+import { ActivityModel } from 'src/app/models/activity.model';
 
 @Component({
-  selector: 'component-stage-card',
+  selector: 'widget-stage-card',
   templateUrl: './stage-card.template.html',
   styleUrls: ['./stage-card.style.scss'],
 })
-export class StageCardComponent {
+export class StageCardWidget {
   progress = 0;
-  changes = 0;
-  activities = [
+  activities: ActivityModel[] = [
     {
-      id: 1,
+      id: '1',
       description: 'Pegar certidão de nascimento.',
-      checked: true,
-      checkedAt: new Date(),
+      checked: false,
+      children: [
+        {
+          id: '10',
+          description: 'Pegar certidão de nascimento do filho.',
+          checked: false,
+        },
+        {
+          id: '11',
+          description: 'Pegar certidão de nascimento da filha.',
+          checked: false,
+        },
+      ],
     },
     {
-      id: 2,
+      id: '2',
       description: 'Tirar foto 3x4.',
-      checked: true,
-      checkedAt: new Date(),
-    },
-    {
-      id: 3,
-      description: 'Reconhecer firma no cartório.',
       checked: false,
     },
     {
-      id: 4,
+      id: '3',
+      description: 'Reconhecer firma no cartório.',
+      checked: false,
+      children: [
+        {
+          id: '12',
+          description: 'Pegar certidão de nascimento do filho.',
+          checked: false,
+        },
+        {
+          id: '13',
+          description: 'Pegar certidão de nascimento do filho.',
+          checked: false,
+        },
+        {
+          id: '14',
+          description: 'Pegar certidão de nascimento do filho.',
+          checked: false,
+        },
+        {
+          id: '15',
+          description: 'Pegar certidão de nascimento do filho.',
+          checked: false,
+        },
+      ],
+    },
+    {
+      id: '4',
       description: 'Assinar contrato.',
       checked: false,
     },
@@ -38,31 +70,40 @@ export class StageCardComponent {
     this.calculateProgress();
   }
 
-  toggleActivity(id: number, value: boolean): void {
-    this.activities = this.activities.map((activity) => {
-      if (activity.id === id) {
-        return {
-          ...activity,
-          checked: value,
-          checkedAt: value ? new Date() : undefined,
-        };
-      }
-      return activity;
-    });
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+  }
+
+  updateProgress(toggledActivity: ActivityModel): void {
+    this.activities = this.activities.map((activity) =>
+      activity.id === toggledActivity.id ? toggledActivity : activity
+    );
 
     this.calculateProgress();
   }
 
   calculateProgress(): void {
-    const completed = this.activities.filter((activity) => activity.checked);
-    this.progress = completed.length / this.activities.length;
+    let completed = 0;
+    let notCompleted = 0;
+
+    this.activities.forEach((activity) => {
+      if (activity.children?.length) {
+        activity.children.forEach((child) => {
+          child.checked ? completed++ : notCompleted++;
+        });
+      } else {
+        activity.checked ? completed++ : notCompleted++;
+      }
+    });
+
+    this.progress = completed / (completed + notCompleted);
   }
 
-  drop(
-    event: CdkDragDrop<
-      { id: number; description: string; checked: boolean; checkedAt?: Date }[]
-    >
-  ) {
+  drop(event: CdkDragDrop<ActivityModel[]>) {
     moveItemInArray(this.activities, event.previousIndex, event.currentIndex);
+  }
+
+  addActivity(activity: ActivityModel): void {
+    this.activities = [...this.activities, activity];
   }
 }
