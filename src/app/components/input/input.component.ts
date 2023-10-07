@@ -26,9 +26,9 @@ export class InputComponent implements ControlValueAccessor {
   @Input() icon: string = '';
   @Input() mask: string | null = null;
   @Input() error: string | null = null;
+  @Input() value: any = '';
 
   onTouched: any = () => {};
-  value: any = '';
   disabled = false;
 
   onChange: any = (value: any) => {

@@ -14,55 +14,6 @@ export class StageCardWidget {
       id: '1',
       description: 'Pegar certidão de nascimento.',
       checked: false,
-      children: [
-        {
-          id: '10',
-          description: 'Pegar certidão de nascimento do filho.',
-          checked: false,
-        },
-        {
-          id: '11',
-          description: 'Pegar certidão de nascimento da filha.',
-          checked: false,
-        },
-      ],
-    },
-    {
-      id: '2',
-      description: 'Tirar foto 3x4.',
-      checked: false,
-    },
-    {
-      id: '3',
-      description: 'Reconhecer firma no cartório.',
-      checked: false,
-      children: [
-        {
-          id: '12',
-          description: 'Pegar certidão de nascimento do filho.',
-          checked: false,
-        },
-        {
-          id: '13',
-          description: 'Pegar certidão de nascimento do filho.',
-          checked: false,
-        },
-        {
-          id: '14',
-          description: 'Pegar certidão de nascimento do filho.',
-          checked: false,
-        },
-        {
-          id: '15',
-          description: 'Pegar certidão de nascimento do filho.',
-          checked: false,
-        },
-      ],
-    },
-    {
-      id: '4',
-      description: 'Assinar contrato.',
-      checked: false,
     },
   ];
 

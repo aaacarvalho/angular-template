@@ -1,0 +1,45 @@
+.programs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  &__card {
+    border: 1px solid #bfbfbf;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    transition: 0.2s;
+    width: 200px;
+    height: 250px;
+    margin-right: 20px;
+
+    img {
+      transition: 0.2s;
+      height: 50px;
+      width: auto;
+    }
+
+    h3 {
+      transition: 0.2s;
+      font-size: 20px;
+      color: #407454
+    }
+
+    &:hover {
+      border: 1px solid #407454;
+      box-shadow: 0px 10px 10px #407454;
+
+      img, h3 {
+        transform: scale(1.1);
+      }
+    }
+
+    &:last-of-type {
+      margin-right: 0px;
+    }
+  }
+}

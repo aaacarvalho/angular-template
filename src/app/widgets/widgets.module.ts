@@ -3,8 +3,10 @@ import { GeneralWidgetsModule } from './general/general-widgets.module';
 import { ProjectWidgetsModule } from './project/project-widgets.module';
 import { LoginWidgetsModule } from './login/login-widgets.module';
 import { ComponentsModule } from '../components/components.module';
-import { ProducerWidgets } from './producer/producer-widgets.module';
+import { ProducerWidgetsModule } from './producer/producer-widgets.module';
 import { StageWidgetsModule } from './stage/stage-widgets.module';
+import { ProgramWidgetsModule } from './program/program-widgets.module';
+import { PropertyWidgets } from './property/property-widgets.module';
 
 @NgModule({
   imports: [
@@ -12,14 +14,16 @@ import { StageWidgetsModule } from './stage/stage-widgets.module';
     ProjectWidgetsModule,
     LoginWidgetsModule,
     ComponentsModule,
-    ProducerWidgets,
+    ProducerWidgetsModule,
     StageWidgetsModule,
+    ProgramWidgetsModule,
+    PropertyWidgets,
   ],
   exports: [
     GeneralWidgetsModule,
     ProjectWidgetsModule,
     LoginWidgetsModule,
-    ProducerWidgets,
+    ProducerWidgetsModule,
     StageWidgetsModule,
   ],
 })

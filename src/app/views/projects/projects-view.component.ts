@@ -11,6 +11,8 @@ export class ProjectsView {
   currentProjects: Record<string, any>[] = [];
   totalProjects: Record<string, any>[] = [];
 
+  startANewProject = false;
+
   constructor(private readonly projectRepository: ProjectRepository) {}
 
   async ngOnInit(): Promise<void> {
@@ -28,5 +30,9 @@ export class ProjectsView {
             project.programName.toLowerCase().startsWith(value)
         ))
       : (this.currentProjects = this.totalProjects);
+  }
+
+  toggleProjectScreen(): void {
+    this.startANewProject = !this.startANewProject;
   }
 }

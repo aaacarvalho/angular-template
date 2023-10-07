@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, lastValueFrom, take } from 'rxjs';
 
 export abstract class Repository {
-  protected baseUrl = 'https://mvgi-backend.herokuapp.com/api';
+  protected baseUrl = 'https://54.88.119.168.nip.io/api';
 
   constructor(protected readonly httpClient: HttpClient) {}
 

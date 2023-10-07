@@ -1,0 +1,110 @@
+.new-project {
+  &__container {
+    background-color: #FFF;
+    border-radius: 4px;
+    height: 100%;
+    display: none;
+
+    &--active {
+      margin-top: 0px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__step-title {
+    margin-bottom: 45px;
+  }
+
+  &__program {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    widget-program-selector {
+      width: 75%;
+    }
+  }
+
+  &__step {
+    margin-top: 20px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    widget-producer-search, widget-property-search {
+      width: 100%;
+    }
+  }
+
+  &__button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    width: 100%;
+
+    component-button {
+      &:first-of-type {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  &__confirmation {
+    width: 50%;
+
+    .confirmations {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      &__card {
+        border: 1px solid #888 !important;
+        height: 320px;
+        width: 260px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 6px;
+        padding: 30px;
+        position: relative;
+
+        img {
+          height: 120px;
+          width: auto;
+        }
+
+        h3 {
+          text-align: center;
+          margin-top: 25px;
+        }
+
+        .edit {
+          position: absolute;
+          top: -25px;
+          left: calc(50% - 20px);
+          cursor: pointer;
+          background-color: #FFF;
+          width: 50px;
+          height: 50px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            height: 30px;
+            width: auto;
+          }
+        }
+      }
+    }
+  }
+}

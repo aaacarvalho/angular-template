@@ -1,0 +1,6 @@
+<div class="programs">
+  <div *ngFor="let program of programs" class="programs__card" (click)="selectProgram(program.id)">
+      <img src="{{ program.icon }}" />
+      <h3>{{ program.name }}</h3>
+  </div>
+</div>

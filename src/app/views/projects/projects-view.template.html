@@ -1,4 +1,8 @@
 <view-default>
+  <ng-template *ngIf="startANewProject; then newProject; else projectList"></ng-template>
+</view-default>
+
+<ng-template #projectList>
   <div class="section-header">
     <h1>Projetos</h1>
     <component-input
@@ -6,8 +10,15 @@
       [label]="'Pesquisar'"
       [icon]="'assets/icons/search.svg'"
     ></component-input>
-    <component-button [label]="'Criar projeto +'"></component-button>
+    <component-button [label]="'Criar projeto +'" (onClickEvent)="toggleProjectScreen()"></component-button>
   </div>
   <widget-project-list [loading]="loading" [projects]="currentProjects"></widget-project-list>
-</view-default>
+</ng-template>
 
+<ng-template #newProject>
+  <div class="section-header">
+    <h1>Criar Projeto</h1>
+    <component-button [label]="'Fechar'" (onClickEvent)="toggleProjectScreen()"></component-button>
+  </div>
+  <widget-new-project></widget-new-project>
+</ng-template>

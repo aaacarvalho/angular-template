@@ -1,0 +1,62 @@
+<div class="new-project__container" [ngClass]="activeStep === 'program' ? 'new-project__container--active' : '' ">
+  <div class="new-project__program" >
+    <h2 class="new-project__step-title">De qual programa esse projeto vai fazer parte?</h2>
+    <widget-program-selector (programSelected)="selectProgram($event)"></widget-program-selector>
+  </div>
+</div>
+
+<div class="new-project__container" [ngClass]="activeStep === 'producer' ? 'new-project__container--active' : '' ">
+  <div class="new-project__producer new-project__step">
+    <h2 class="new-project__step-title">Quem é o produtor do projeto?</h2>
+    <widget-producer-search (producerSelected)="selectProducer($event)"></widget-producer-search>
+    <div class="new-project__button-wrapper">
+      <component-button [label]="'Voltar'" (onClickEvent)="setActiveStep('program')" type="light"></component-button>
+      <component-button [label]="'Avançar'" (onClickEvent)="setActiveStep('property')"></component-button>
+    </div>
+  </div>
+</div>
+
+<div class="new-project__container" [ngClass]="activeStep === 'property' ? 'new-project__container--active' : '' ">
+  <div class="new-project__property new-project__step">
+    <h2 class="new-project__step-title">Em que propriedade o projeto será executado?</h2>
+    <widget-property-search (propertySelected)="selectProperty($event)"></widget-property-search>
+    <div class="new-project__button-wrapper">
+      <component-button [label]="'Voltar'" (onClickEvent)="setActiveStep('producer')" type="light"></component-button>
+      <component-button [label]="'Avançar'" (onClickEvent)="setActiveStep('confirmation')"></component-button>
+    </div>
+  </div>
+</div>
+
+<div class="new-project__container" [ngClass]="activeStep === 'confirmation' ? 'new-project__container--active' : '' ">
+  <div class="new-project__confirmation new-project__step">
+    <h2 class="new-project__step-title">Confira as informações</h2>
+    <div class="confirmations">
+      <div class="confirmations__card">
+        <div class="edit" (click)="setActiveStep('program')">
+          <img src="assets/icons/edit.svg" />
+        </div>
+        <img src="assets/icons/plant.svg" />
+        <h3>Reflorestar</h3>
+      </div>
+      <div class="confirmations__card">
+        <div class="edit" (click)="setActiveStep('producer')">
+          <img src="assets/icons/edit.svg" />
+        </div>
+        <img src="assets/icons/dark-user.svg" />
+        <h3>Fulano de tal</h3>
+        <p>(22) 99736-6361</p>
+      </div>
+      <div class="confirmations__card">
+        <div class="edit" (click)="setActiveStep('property')">
+          <img src="assets/icons/edit.svg" />
+        </div>
+        <img src="assets/icons/pin.svg" />
+        <h3>Sítio do Pica-pau amarelo</h3>
+      </div>
+    </div>
+    <div class="new-project__button-wrapper">
+      <component-button [label]="'Criar projeto'"></component-button>
+    </div>
+  </div>
+</div>
+

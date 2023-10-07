@@ -1,0 +1,26 @@
+<div class="properties" [ngClass]="submittingForm ? 'properties--submitting' : ''">
+  <component-input [value]="searchText" [icon]="'assets/icons/search.svg'" (change)="searchProperty($event)"></component-input>
+  <ng-template [ngIf]="showProperties">
+    <div class="properties__wrapper">
+      <ng-container *ngIf="loading; then loadingTemplate; else propertiesList"></ng-container>
+    </div>
+  </ng-template>
+</div>
+
+<ng-template #propertiesList>
+  <ul class="properties__list">
+    <li *ngFor="let property of properties" (click)="setProperty(property)">
+      <p>{{ property.name }}</p>
+    </li>
+    <ng-template [ngIf]="!properties.length">
+      <li><p>Nenhuma propriedade encontrada.</p></li>
+    </ng-template>
+  </ul>
+  <component-button [label]="'Criar nova propriedade ' + searchText" (onClickEvent)="createProperty()"></component-button>
+</ng-template>
+
+<ng-template #loadingTemplate>
+  <ngx-skeleton-loader [theme]="{ width: '100%', height: '30px', background: '#ddd', margin: '0px' }" ></ngx-skeleton-loader>
+  <ngx-skeleton-loader [theme]="{ width: '100%', height: '30px', background: '#ddd', margin: '0px' }" ></ngx-skeleton-loader>
+  <ngx-skeleton-loader [theme]="{ width: '100%', height: '30px', background: '#ddd', margin: '0px' }" ></ngx-skeleton-loader>
+</ng-template>

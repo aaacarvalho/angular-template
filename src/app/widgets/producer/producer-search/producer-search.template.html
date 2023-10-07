@@ -1,0 +1,32 @@
+<div class="producers" [ngClass]="submittingForm ? 'producers--submitting' : ''">
+  <component-input [value]="searchText" [icon]="'assets/icons/search.svg'" (change)="searchProducer($event)"></component-input>
+  <ng-template [ngIf]="showProducers">
+    <div class="producers__wrapper">
+      <ng-container *ngIf="loading; then loadingTemplate; else producersList"></ng-container>
+    </div>
+  </ng-template>
+  <ng-template [ngIf]="showNewProducerForm">
+    <form [formGroup]="producerForm" class="producers__form">
+      <component-input [label]="'Telefone'" [mask]="'(00) 00000-0000'" formControlName="phone"/>
+      <component-button [label]="'Criar'" (onClickEvent)="submitProducer()"></component-button>
+    </form>
+  </ng-template>
+</div>
+
+<ng-template #producersList>
+  <ul class="producers__list">
+    <li *ngFor="let producer of producers" (click)="setProducer(producer)">
+      <p>{{ producer.user.name }}</p>
+    </li>
+    <ng-template [ngIf]="!producers.length">
+      <li><p>Nenhum produtor encontrado.</p></li>
+    </ng-template>
+  </ul>
+  <component-button [label]="'Criar novo produtor ' + searchText" (onClickEvent)="createProducer()"></component-button>
+</ng-template>
+
+<ng-template #loadingTemplate>
+  <ngx-skeleton-loader [theme]="{ width: '100%', height: '30px', background: '#ddd', margin: '0px' }" ></ngx-skeleton-loader>
+  <ngx-skeleton-loader [theme]="{ width: '100%', height: '30px', background: '#ddd', margin: '0px' }" ></ngx-skeleton-loader>
+  <ngx-skeleton-loader [theme]="{ width: '100%', height: '30px', background: '#ddd', margin: '0px' }" ></ngx-skeleton-loader>
+</ng-template>
