@@ -1,8 +1,74 @@
-.project-stages {
+.project-section {
+  margin-bottom: 100px;
+
   h2 {
     margin: 25px 0px;
   }
 
+  .modalities {
+    &__card {
+      border-radius: 6px;
+      display: flex;
+      height: 85px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      position: sticky;
+      color: #FFF;
+      box-shadow: 5px 5px 5px #9f9f9f;
+
+      &--header {
+        background-color: none;
+        box-shadow: none;
+        color: #000;
+        height: 30px;
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      &__type {
+        width: 50px;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: 1px solid #ffffff2c;
+        color: rgb(134, 91, 212);
+
+        p {
+          text-orientation: upright;
+          writing-mode: vertical-lr;
+          color: #FFF;
+          font-weight: 700;
+          margin: 0 auto;
+        }
+      }
+
+      &__arranjo, &__area, &__planned, &__done, &__value {
+        flex: 1 0 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    &__details {
+      background-color: #FFF;
+      border-radius: 6px;
+      margin: 20px 0px 40px;
+      width: 100%;
+      box-shadow: 5px 5px 10px #9f9f9f;
+      display: none;
+
+      &--open {
+        display: block;
+      }
+    }
+  }
+}
+
+.project-stages {
   &__list {
     display: flex;
     flex-wrap: wrap;
@@ -11,6 +77,119 @@
     widget-stage-card {
       flex: 0 0 100%;
       margin-bottom: 35px;
+    }
+  }
+}
+
+.project-lands {
+  background-color: #FFF;
+  padding: 30px 50px;
+  border-radius: 6px;
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+
+    .column {
+      flex: 1 0 0;
+      display: flex;
+      align-items: center;
+
+      .name {
+        width: 45px;
+        height: 45px;
+        text-align: center;
+        border-radius: 50%;
+        color: #FFF;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .spacing {
+        flex: 1 0 0;
+        text-align: center;
+        position: relative;
+
+        label {
+          background-color: #FFF;
+          z-index: 2;
+          position: relative;
+          width: 50px;
+          display: inline-block;
+        }
+
+        div {
+          z-index: 1;
+          width: 85%;
+          border-bottom: 1px solid #888;
+          height: 100%;
+          margin: 0 auto;
+          position: absolute;
+          bottom: 50%;
+          left: 7.5%;
+        }
+      }
+
+      &:last-of-type {
+        flex: 0 0 0;
+
+        .spacing {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .divider {
+    display: flex;
+    justify-content: space-between;
+
+    .spacing {
+      width: 45px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+
+      label {
+        z-index: 2;
+        background-color: #FFF;
+        position: relative;
+        height: 50px;
+        display: inline-block;
+        text-align: center;
+        line-height: 50px;
+      }
+
+      div {
+        height: 85%;
+        z-index: 1;
+        border-right: 1px solid #888;
+        width: 1px;
+        position: absolute;
+        left: 50%;
+        top: 7.5%;
+      }
+    }
+  }
+
+  .muda:last-of-type {
+    .divider {
+      position: relative;
+
+      &:after {
+        content: '';
+        display: block;
+        width: 90%;
+        position: absolute;
+        left: 5%;
+        bottom: 0px;
+        background-color: #888;
+        height: 1px;
+      }
     }
   }
 }

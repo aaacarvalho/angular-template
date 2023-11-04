@@ -1,0 +1,39 @@
+
+<form class="modality-form" [formGroup]="modalityForm">
+  <div class="modality-form__section">
+    <h2>Modalidade</h2>
+    <div class="input-wrapper">
+      <component-select [options]="modalityOptions" [label]="'Tipo de modalidade*'"></component-select>
+    </div>
+    <div class="input-wrapper">
+      <component-input [label]="'Área planejada (ha)*'" [type]="'number'" formControlName="areaPlanejada"></component-input>
+    </div>
+    <div class="input-wrapper">
+      <component-select [options]="arrangementOptions" [label]="'Tipo de arranjo'"></component-select>
+    </div>
+  </div>
+  <div class="modality-form__section">
+    <h2>Hidrografia</h2>
+    <div class="input-wrapper">
+      <component-input [type]="'number'" [label]="'Nº de nascentes'"/>
+    </div>
+    <div class="input-wrapper">
+      <component-input [type]="'number'" [label]="'Nº de nascentes sendo recuperadas'"/>
+    </div>
+    <div class="input-wrapper">
+      <component-input [type]="'number'" [label]="'Nº de nascentes já recuperadas'"/>
+    </div>
+    <div class="input-wrapper">
+      <component-select [label]="'Classificação da nascente'" [options]="hydroOptions"/>
+    </div>
+    <div class="input-wrapper">
+      <component-select [label]="'Rio/Córrego'" [options]="hydroOptions"/>
+    </div>
+    <div class="input-wrapper">
+      <component-input [type]="'number'" [label]="'Nº de reservatórios'"/>
+    </div>
+    <div class="input-wrapper">
+      <component-select [label]="'Classificação do reservatório'" [options]="hydroOptions"/>
+    </div>
+  </div>
+</form>

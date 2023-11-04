@@ -1,0 +1,5 @@
+<select class="component-select" id="component-select" (change)="selectValue($event)">
+  <option selected="true" value="" disabled="true">{{ label }}</option>
+  <option *ngFor="let option of options" value="{{ option.value }}">{{ option.label }}</option>
+  <span *ngIf="value" class="field-label">{{ label }}</span>
+</select>

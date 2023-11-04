@@ -2,10 +2,59 @@
   <div>
     <h1>Dashboard do Projeto</h1>
   </div>
-  <div class="project-stages">
+  <div class="project-section project-stages">
     <h2>Estágios do projeto</h2>
     <div class="project-stages__list">
       <widget-stage-card></widget-stage-card>
     </div>
+  </div>
+  <div class="project-section">
+    <h2>Modalidades do projeto</h2>
+    <div class="modalities">
+      <div class="modalities__card modalities__card--header">
+        <div class="modalities__card__type"></div>
+        <div class="modalities__card__arranjo"><p>Arranjo</p></div>
+        <div class="modalities__card__area"><p>Área</p></div>
+        <div class="modalities__card__planned"><p>Planejado</p></div>
+        <div class="modalities__card__done"><p>Executado</p></div>
+        <div class="modalities__card__value"><p>Valor</p></div>
+      </div>
+      <div *ngFor="let modality of modalities">
+        <div class="modalities__card" [ngStyle]="{ 'background-color': modality.color }" (click)="selectModality(modality.id)">
+          <div class="modalities__card__type" [ngStyle]="{ 'background-color': modality.color }"><p>{{ modality.name }}</p></div>
+          <div class="modalities__card__arranjo">{{ modality.arranjo }}</div>
+          <div class="modalities__card__area">{{ modality.area }}</div>
+          <div class="modalities__card__planned">{{ modality.planejado }}</div>
+          <div class="modalities__card__done">{{ modality.executado }}</div>
+          <div class="modalities__card__value">{{ modality.value }}</div>
+        </div>
+        <div class="modalities__details project-lands" [ngClass]="selectedModalityId === modality.id ? 'modalities__details--open' : '' ">
+          <widget-modality-form></widget-modality-form>
+          <h2>Croqui</h2>
+          <div *ngFor="let muda of croqui" class="muda">
+            <div  class="row">
+              <div *ngFor="let column of [].constructor(12 / muda.x)" class="column">
+                <p class="name" [ngStyle]="{ 'background-color': muda.color }">{{ muda.muda.slice(0, 1) }}</p>
+                <div class="spacing"><label>{{ muda.x }}m</label><div></div></div>
+              </div>
+            </div>
+            <div [ngStyle]="{ 'height.px': 100 * muda.y }" class="divider">
+              <div class="spacing">
+                <label>{{ muda.y }}m</label>
+                <div></div>
+              </div>
+              <div class="spacing">
+                <label>{{ muda.y }}m</label>
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="project-section">
+    <h2>Geolocalização</h2>
+    <widget-modality-map></widget-modality-map>
   </div>
 </view-default>

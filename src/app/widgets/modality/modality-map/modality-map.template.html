@@ -1,0 +1,58 @@
+<div class="map-wrapper">
+  <div id="map" class="map"></div>
+  <div class="map-control">
+    <ng-template *ngIf="selectedShape; then shapeArea;"></ng-template>
+    <div class="map-control__card map-control__new">
+      <h2>Nova área</h2>
+      <div class="map-control__new__custom">
+        <label for="custom-modality">Personalizado</label>
+        <input type="checkbox" id="custom-modality" [checked]="custom" (change)="setCustom(!custom)"/>
+      </div>
+      <div class="map-control__new__layer">
+        <label>Camada</label>
+        <component-quantity-selector (onNumberChange)="setModalityLayer($event)" [min]="1" [default]="1"></component-quantity-selector>
+      </div>
+      <ng-template *ngIf="custom; then customModality; else modalitySelector;"></ng-template>
+      <component-button [label]="'Salvar'" (onClickEvent)="save()"></component-button>
+    </div>
+  </div>
+</div>
+
+<ng-template #modalitySelector>
+  <div class="map-control__new__modality">
+    <component-select [options]="modalityOptions" (optionSelected)="setModality($event)" [label]="'Modalidade'"></component-select>
+  </div>
+</ng-template>
+
+<ng-template #customModality>
+  <div class="map-control__new__name">
+    <component-input [label]="'Nome'" value="name" (change)="setName($event)"></component-input>
+  </div>
+  <div class="map-control__new__color">
+    <h2>Cor</h2>
+    <input [(colorPicker)]="color" [style.background]="color" [style.border]="'none'" [style.cursor]="'pointer'" (colorPickerSelect)="changeColor($event)"/>
+  </div>
+</ng-template>
+
+<ng-template #shapeArea>
+  <div class="map-control__card map-control__data" [ngStyle]="{ 'background-color': selectedShape.color }">
+    <div class="map-control__data__title">
+      <h2>{{ this.selectedShape.name }}</h2>
+      <img src="assets/icons/trash.svg" (click)="removeShape()"/>
+    </div>
+    <div class="map-control__data__info">
+      <div>
+        <h3>Área</h3>
+        <p>{{ selectedShape.area.toFixed(3) }}ha</p>
+      </div>
+      <div>
+        <h3>Perímetro</h3>
+        <p>{{ selectedShape.distance > 1000 ? (selectedShape.distance / 1000).toFixed(3) : selectedShape.distance.toFixed(0) }}{{ selectedShape.distance > 1000 ? 'km' : 'm' }}</p>
+      </div>
+      <div>
+        <h3>Produtividade</h3>
+        <p>{{ formatCurrency() }}</p>
+      </div>
+    </div>
+  </div>
+</ng-template>

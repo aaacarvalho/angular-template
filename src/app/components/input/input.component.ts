@@ -39,7 +39,6 @@ export class InputComponent implements ControlValueAccessor {
     const value = this.mask
       ? event.target.value.replace(/\D+/g, '')
       : event.target.value;
-
     this.onChange(value);
   }
 

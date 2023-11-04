@@ -25,6 +25,11 @@ export class SidebarComponent {
       icon: 'assets/icons/settings.svg',
       path: 'configuracoes',
     },
+    {
+      label: 'Chamados',
+      icon: 'assets/icons/support.svg',
+      path: 'chamados',
+    },
   ];
 
   toggle(): void {

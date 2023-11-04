@@ -1,0 +1,51 @@
+.support {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__content {
+    flex: 0 0 70%;
+  }
+
+  &__sidebar {
+    flex: 0 0 30%;
+    background-color: #FFF;
+    border-radius: 5px;
+  }
+
+  &__overview {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 0px;
+  
+    &__card {
+      color: rgb(40, 82, 43);
+      border-radius: 15px;
+      background-color: #FFF;
+      padding: 20px 30px;
+      flex: 0 0 23%;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.2s;
+  
+      label {
+        font-size: 48px;
+        display: inline-block;
+        cursor: pointer;
+      }
+  
+      p {
+        font-size: 18px;
+        display: inline-block;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+
+      &--selected {
+        background-color: rgb(40, 82, 43);
+        color: #FFF;
+      }
+    }
+  }
+}

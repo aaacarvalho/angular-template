@@ -29,13 +29,16 @@
     }
   }
 
-  .error-message {
+  .error-message, .field-label {
     font-size: 11px;
-    color: #F00;
     position: absolute;
     left: 10px;
     top: -8px;
     background-color: #FFF;
     padding: 0px 5px;
+  }
+
+  .error-message {
+    color: #F00;
   }
 }

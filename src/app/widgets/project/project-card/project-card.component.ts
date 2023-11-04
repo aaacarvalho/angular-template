@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProjectRepository } from 'src/app/repositories/project.repository';
 
 @Component({
@@ -14,7 +15,10 @@ export class ProjectCardWidget {
 
   @Input('project') project!: Record<string, any>;
 
-  constructor(private readonly projectRepository: ProjectRepository) {}
+  constructor(
+    private readonly projectRepository: ProjectRepository,
+    private readonly router: Router
+  ) {}
 
   setInfoVisibility(value: boolean) {
     this.showInfo = value;
@@ -31,5 +35,9 @@ export class ProjectCardWidget {
 
   closeDetailsDrawer(): void {
     this.showDetailsDrawer = false;
+  }
+
+  goToDashboard(): void {
+    this.router.navigate(['/dashboard']);
   }
 }

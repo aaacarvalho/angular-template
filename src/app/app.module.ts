@@ -13,4 +13,4 @@ import { provideEnvironmentNgxMask } from 'ngx-mask';
   imports: [BrowserModule, HttpClientModule, ViewsModule, WidgetsModule],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,0 +1,18 @@
+.modality-form {
+  &__section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    h2 {
+      margin: 35px 0px;
+      flex: 0 0 100%;
+    }
+  
+    .input-wrapper {
+      flex: 0 0 24%;
+      margin-right: 1%;
+      margin-bottom: 15px;
+    }
+  }
+}

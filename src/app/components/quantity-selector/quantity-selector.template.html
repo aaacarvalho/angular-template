@@ -1,0 +1,5 @@
+<div class="quantity-selector">
+  <label class="quantity-selector__decrease" (click)="decrease()">-</label>
+  <input [mask]="'000000000'" (change)="numberChanged($event)" [value]="value" class="quantity-selector__input" [placeholder]="default"/>
+  <label class="quantity-selector__increase" (click)="increase()">+</label>
+</div>

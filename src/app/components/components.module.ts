@@ -12,6 +12,8 @@ import { UserRepository } from '../repositories/user.repository';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { NgxMaskDirective } from 'ngx-mask';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import { SelectComponent } from './select/select.component';
+import { QuantitySelectorComponent } from './quantity-selector/quantity-selector.component';
 
 @NgModule({
   providers: [UserRepository],
@@ -23,6 +25,8 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
     DrawerComponent,
     NotificationComponent,
     ProgressBarComponent,
+    SelectComponent,
+    QuantitySelectorComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +42,8 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
     DrawerComponent,
     NotificationComponent,
     ProgressBarComponent,
+    SelectComponent,
+    QuantitySelectorComponent,
   ],
 })
 export class ComponentsModule {}

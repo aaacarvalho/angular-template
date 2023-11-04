@@ -1,0 +1,98 @@
+.map-wrapper {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  height: 700px;
+
+  .map {
+    flex: 0 0 70%;
+    height: 100%;
+  }
+
+  .map-control {
+    flex: 0 0 30%;
+    padding-left: 20px;
+    height: 100%;
+
+    &__card {
+      background-color: #FFF;
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    &__new {
+      h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
+
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 20px;
+      }
+
+      &__custom {
+        input {
+          margin-left: 10px;
+        }
+      }
+
+      &__name {
+        component-input {
+          width: 100%;
+        }
+      }
+
+      &__layer {
+        component-quantity-selector {
+          width: 130px;
+          margin-left: 20px;
+        }
+      }
+
+      &__color {
+        h2 {
+          margin-bottom: 0px;
+          margin-right: 20px;
+        }
+      }
+
+      &__modality {
+        component-select {
+          width: 100%;
+        }
+      }
+    }
+
+    &__data {
+      color: #FFF;
+
+      h2 {
+        font-size: 20px;
+      }
+
+      &__title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+
+        img {
+          height: 25px;
+          width: 25px;
+          cursor: pointer;
+        }
+      }
+
+      &__info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+}
