@@ -14,6 +14,8 @@ import {
 })
 export class DrawerComponent {
   @Input('collapsed') collapsed = true;
+  @Input('padding') padding = true;
+
   @Output() drawerCollapsed = new EventEmitter<boolean>();
   @ViewChild('drawer') drawer!: ElementRef;
 

@@ -1,0 +1,36 @@
+<div class="ticket">
+  <label class="ticket__createdAt">{{ ticket.createdAt.toLocaleDateString() }} às {{ ticket.createdAt.toLocaleTimeString() }}</label>
+  <label class="ticket__messages">{{ ticket.messages.length }} mensagens</label>
+  <div class="ticket__origin">
+    <h3>{{ ticket.project.propertyName }}</h3>
+    <h4>{{ ticket.project.producerName }}</h4>
+  </div>
+  <div class="ticket__info">
+    <div class="subject">
+      <p>{{ ticket.subject }}</p>
+    </div>
+    <div class="tags">
+      <div class="tag" *ngFor="let tag of ticket.tags" [ngStyle]="{ 'background-color': tag.color }">
+        <label (click)="removeTag(tag.id)">x</label>
+        <p>{{ tag.label }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="ticket__status" [ngStyle]="{ 'background-color': ticket.status.color }">
+    <p>{{ ticket.status.label }}</p>
+  </div>
+  <div class="ticket__priority" [ngStyle]="{ 'background-color': ticket.priority.color }">
+    <p>{{ ticket.priority.label }}</p>
+  </div>
+  <div class="ticket__open" (click)="openDrawer()">
+    <img src="assets/icons/dots.svg" />
+  </div>
+</div>
+<component-drawer [collapsed]="!drawerOpen" (drawerCollapsed)="closeDrawer()" [padding]="false">
+  <div style="background-image: url('assets/images/wpp-background.png')" class="messages" id="messages">
+    <component-balloon *ngFor="let message of ticket.messages" [createdAt]="message.createdAt" [mine]="message.me" [content]="message.content"></component-balloon>
+  </div>
+  <div class="messages__new">
+    <component-input (keyup.enter)="submitMessage()" (change)="updateNewMessage($event)" [value]="newMessage"></component-input>
+  </div>
+</component-drawer>

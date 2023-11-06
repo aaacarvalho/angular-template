@@ -6,7 +6,7 @@
     >
       X  Fechar
     </button>
-    <div class="drawer__wrapper__content">
+    <div class="drawer__wrapper__content" [ngClass]="padding ? 'padding' : ''" id="drawer">
       <ng-content></ng-content>
     </div>
   </div>

@@ -1,0 +1,9 @@
+<div class="balloon">
+  <svg height="30" width="40" viewBox="0 0 40 30" class="balloon__tail" [ngClass]="mine ? 'balloon__tail--mine' : ''">
+    <polygon points="0,30 40,30 40,0" />
+  </svg>
+  <div class="balloon__content" [ngClass]="mine ? 'balloon__content--mine' : ''">
+    <p>{{ content }}</p>
+    <span>{{ createdAt.toLocaleDateString() }} às {{ createdAt.toLocaleTimeString() }}</span>
+  </div>
+</div>

@@ -31,10 +31,17 @@
       max-width: 45vw;
       height: 100vh;
       margin-left: auto;
-      padding: 40px;
       display: block;
       max-height: 100vh;
       overflow-y: scroll;
+    }
+
+    .padding {
+      padding: 40px;
+    }
+
+    &__content > .drawer__wrapper {
+      pointer-events: none;
     }
   }
 

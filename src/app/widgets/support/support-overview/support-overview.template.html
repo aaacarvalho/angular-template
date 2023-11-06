@@ -1,0 +1,18 @@
+<div class="support-overview">
+  <div class="support-overview__card" [ngClass]="selected === 'open' ? 'support-overview__card--selected' : ''" (click)="selectCard('open')">
+    <label>465</label>
+    <p>abertos</p>
+  </div>
+  <div class="support-overview__card" [ngClass]="selected === 'done' ? 'support-overview__card--selected' : ''" (click)="selectCard('done')">
+    <label>145</label>
+    <p>concluídos</p>
+  </div>
+  <div class="support-overview__card" [ngClass]="selected === 'closed' ? 'support-overview__card--selected' : ''" (click)="selectCard('closed')">
+    <label>34</label>
+    <p>encerrados</p>
+  </div>
+  <div class="support-overview__card" [ngClass]="selected === 'inProgress' ? 'support-overview__card--selected' : ''" (click)="selectCard('inProgress')">
+    <label>19</label>
+    <p>pendentes</p>
+  </div>
+</div>

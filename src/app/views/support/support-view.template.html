@@ -1,29 +1,21 @@
 <view-default>
-  <h2>Chamados</h2>
+  <h1>Chamados</h1>
   <div class="support">
     <div class="support__content">
-      <div class="support__overview">
-        <div class="support__overview__card" [ngClass]="selected === 'open' ? 'support__overview__card--selected' : ''" (click)="selectCard('open')">
-          <label>465</label>
-          <p>abertos</p>
+      <widget-support-overview></widget-support-overview>
+      <div class="support__tickets">
+        <div class="tickets-header">
+          <p class="tickets-header__origin">Origem</p>
+          <p class="tickets-header__subject">Assunto</p>
+          <p class="tickets-header__status">Status</p>
+          <p class="tickets-header__priority">Prioridade</p>
+          <p class="tickets-header__open"></p>
         </div>
-        <div class="support__overview__card" [ngClass]="selected === 'done' ? 'support__overview__card--selected' : ''" (click)="selectCard('done')">
-          <label>145</label>
-          <p>atendidos</p>
-        </div>
-        <div class="support__overview__card" [ngClass]="selected === 'closed' ? 'support__overview__card--selected' : ''" (click)="selectCard('closed')">
-          <label>34</label>
-          <p>encerrados</p>
-        </div>
-        <div class="support__overview__card" [ngClass]="selected === 'inProgress' ? 'support__overview__card--selected' : ''" (click)="selectCard('inProgress')">
-          <label>34</label>
-          <p>pendentes</p>
-        </div>
+        <widget-support-ticket *ngFor="let ticket of tickets" [ticket]="ticket"></widget-support-ticket>
       </div>
     </div>
-    <div class="support__tickets">
-      <div class="ticket"></div>
+    <div class="support__sidebar">
+      <widget-ticket-tools></widget-ticket-tools>
     </div>
-    <div class="support__sidebar"></div>
   </div>
 </view-default>

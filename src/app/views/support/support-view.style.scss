@@ -1,7 +1,7 @@
 .support {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  margin-top: 50px;
 
   &__content {
     flex: 0 0 70%;
@@ -9,43 +9,39 @@
 
   &__sidebar {
     flex: 0 0 30%;
-    background-color: #FFF;
-    border-radius: 5px;
-  }
-
-  &__overview {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 50px 0px;
-  
-    &__card {
-      color: rgb(40, 82, 43);
-      border-radius: 15px;
-      background-color: #FFF;
-      padding: 20px 30px;
-      flex: 0 0 23%;
-      text-align: center;
-      cursor: pointer;
-      transition: 0.2s;
-  
-      label {
-        font-size: 48px;
-        display: inline-block;
-        cursor: pointer;
-      }
-  
-      p {
-        font-size: 18px;
-        display: inline-block;
-        margin-left: 10px;
-        cursor: pointer;
-      }
-
-      &--selected {
-        background-color: rgb(40, 82, 43);
-        color: #FFF;
-      }
-    }
+    padding-left: 50px;
   }
 }
+
+.tickets-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0px 10px 10px;
+  background-color: rgb(40, 82, 43);
+  border-radius: 5px;
+  margin-bottom: 20px;
+
+  p {
+    text-align: center;
+    color: #FFF;
+    font-size: 18px;
+  }
+
+  &__origin {
+    flex: 0 0 20%;
+  }
+
+  &__status, &__priority {
+    flex: 0 0 10%;
+  }
+
+  &__subject {
+    flex: 0 0 40%;
+  }
+
+  &__open {
+    flex: 0 0 5%;
+  }
+}
+

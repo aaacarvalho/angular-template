@@ -1,0 +1,36 @@
+<div class="tickets-tools">
+  <div class="tickets-tools__search">
+    <h3>Pesquisar por produtor ou propriedade</h3>
+    <component-input [icon]="'assets/icons/search.svg'"></component-input>
+  </div>
+  <div class="tickets-tools__dates">
+    <div class="tickets-tools__dates__selector">
+      <h3>De</h3>
+      <component-input [type]="'date'"></component-input>
+    </div>
+    <div class="tickets-tools__dates__selector">
+      <h3>Até</h3>
+      <component-input [type]="'date'"></component-input>
+    </div>
+  </div>
+  <div class="tickets-tools__filtering">
+    <div class="tickets-tools__filtering__tags">
+      <h3>Tags</h3>
+      <div *ngFor="let tag of tags" class="tag" [ngStyle]="tag.checked ? { 'background-color': tag.color, 'border': '1px solid ' + tag.color, 'color': '#FFF' } : { 'background-color': '#FFF', 'color': tag.color, 'border': '1px solid ' + tag.color }" (click)="checkTag(tag.label)">
+        <p>{{ tag.label }}</p>
+      </div>
+    </div>
+    <div class="tickets-tools__filtering__tags">
+      <h3>Status</h3>
+      <div *ngFor="let status of statuses" class="tag" [ngStyle]="status.checked ? { 'background-color': status.color, 'border': '1px solid ' + status.color, 'color': '#FFF' } : { 'background-color': '#FFF', 'color': status.color, 'border': '1px solid ' + status.color }" (click)="checkStatus(status.label)">
+        <p>{{ status.label }}</p>
+      </div>
+    </div>
+    <div class="tickets-tools__filtering__tags">
+      <h3>Prioridade</h3>
+      <div *ngFor="let priority of priorities" class="tag" [ngStyle]="priority.checked ? { 'background-color': priority.color, 'border': '1px solid ' + priority.color, 'color': '#FFF' } : { 'background-color': '#FFF', 'color': priority.color, 'border': '1px solid ' + priority.color }" (click)="checkPriority(priority.label)">
+        <p>{{ priority.label }}</p>
+      </div>
+    </div>
+  </div>
+</div>

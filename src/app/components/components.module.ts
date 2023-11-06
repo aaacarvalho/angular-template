@@ -14,6 +14,7 @@ import { NgxMaskDirective } from 'ngx-mask';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { SelectComponent } from './select/select.component';
 import { QuantitySelectorComponent } from './quantity-selector/quantity-selector.component';
+import { BalloonComponent } from './balloon/balloon.component';
 
 @NgModule({
   providers: [UserRepository],
@@ -27,6 +28,7 @@ import { QuantitySelectorComponent } from './quantity-selector/quantity-selector
     ProgressBarComponent,
     SelectComponent,
     QuantitySelectorComponent,
+    BalloonComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +46,7 @@ import { QuantitySelectorComponent } from './quantity-selector/quantity-selector
     ProgressBarComponent,
     SelectComponent,
     QuantitySelectorComponent,
+    BalloonComponent,
   ],
 })
 export class ComponentsModule {}

@@ -8,6 +8,7 @@ import { StageWidgetsModule } from './stage/stage-widgets.module';
 import { ProgramWidgetsModule } from './program/program-widgets.module';
 import { PropertyWidgets } from './property/property-widgets.module';
 import { ModalityWidgets } from './modality/modality-widgets.module';
+import { SupportWidgetsModule } from './support/support-widgets.module';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { ModalityWidgets } from './modality/modality-widgets.module';
     ProgramWidgetsModule,
     PropertyWidgets,
     ModalityWidgets,
+    SupportWidgetsModule,
   ],
   exports: [
     GeneralWidgetsModule,
@@ -28,6 +30,7 @@ import { ModalityWidgets } from './modality/modality-widgets.module';
     ProducerWidgetsModule,
     StageWidgetsModule,
     ModalityWidgets,
+    SupportWidgetsModule,
   ],
 })
 export class WidgetsModule {}

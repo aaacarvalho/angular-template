@@ -1,0 +1,48 @@
+.balloon {
+  position: relative;
+  margin-bottom: 20px;
+
+  &__tail {
+    border-radius: 8px;
+    transform: rotateX(180deg);
+    position: absolute;
+    top: 0px;
+    left: -20px;
+    fill: #FFF;
+
+    &--mine {
+      fill:  #c5e6c1;
+      bottom: 0px;
+      right: -20px;
+      top: auto;
+      left: auto;
+      transform: rotateY(180deg);
+    }
+  }
+
+  &__content {
+    width: 100%;
+    border-radius: 7.5px;
+    background-size: cover;
+    background-position: center;
+    background-color: #FFF;
+    position: relative;
+    padding: 20px;
+
+    &--mine {
+      background-color:  #c5e6c1;
+    }
+
+    p {
+      color: #444;
+    }
+
+    span {
+      position: absolute;
+      bottom: 5px;
+      right: 10px;
+      font-size: 13px;
+      color: #888;
+    }
+  }
+}
