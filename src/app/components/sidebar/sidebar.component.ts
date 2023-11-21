@@ -18,17 +18,21 @@ export class SidebarComponent {
       path: 'produtores',
     },
     { label: 'Projetos', icon: 'assets/icons/project.svg', path: 'projetos' },
-    { label: 'Mudas', icon: 'assets/icons/leaf.svg', path: 'mudas' },
-    { label: 'Usuários', icon: 'assets/icons/user.svg', path: 'usuarios' },
     {
-      label: 'Configurações',
-      icon: 'assets/icons/settings.svg',
-      path: 'configuracoes',
+      label: 'Financeiro',
+      icon: 'assets/icons/dollar.svg',
+      path: 'financeiro',
     },
+    { label: 'Usuários', icon: 'assets/icons/user.svg', path: 'usuarios' },
     {
       label: 'Chamados',
       icon: 'assets/icons/support.svg',
       path: 'chamados',
+    },
+    {
+      label: 'Configurações',
+      icon: 'assets/icons/settings.svg',
+      path: 'configuracoes',
     },
   ];
 

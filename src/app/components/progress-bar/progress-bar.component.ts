@@ -7,6 +7,10 @@ import { Component, Input } from '@angular/core';
 })
 export class ProgressBarComponent {
   @Input('progress') progress = 0;
+  @Input('message') message = true;
+  @Input('out') out!: string;
+  @Input('of') of!: string;
+
   label = '';
 
   ngOnInit(): void {

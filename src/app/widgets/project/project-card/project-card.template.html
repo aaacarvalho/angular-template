@@ -8,12 +8,13 @@
     <component-donut-chart></component-donut-chart>
   </div>
   <div class="status" (click)="setInfoVisibility(false)">
-    <p>Status: Em atraso</p>
+    <p>Em atraso</p>
   </div>
   <div class="actions" (click)="setInfoVisibility(false)">
     <component-button
-      label="Atividades"
+      label="Financeiro"
       [type]="'light'"
+      (onClickEvent)="goToFinancials()"
     ></component-button>
     <component-button
       label="Dashboard"

@@ -40,4 +40,8 @@ export class ProjectCardWidget {
   goToDashboard(): void {
     this.router.navigate(['/dashboard']);
   }
+
+  goToFinancials(): void {
+    this.router.navigate(['/financeiro']);
+  }
 }

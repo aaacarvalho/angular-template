@@ -1,0 +1,64 @@
+<view-default>
+  <div class="financials">
+    <div class="financials__header">
+      <h1>Financeiro</h1>
+      <component-select [options]="selectOptions" [label]="'Total'" [value]="'TOTAL'" (optionSelected)="selectOption($event)"></component-select>
+    </div>
+    <div class="financials__installments">
+      <div class="installments__card installments__incomes">
+        <h3>Parcelas a receber</h3>
+        <component-progress-bar [progress]="totalIncomesPaid/totalIncomes" [message]="false" [out]="toMoney(totalIncomesPaid)" [of]="toMoney(totalIncomes)"></component-progress-bar>
+        <ul class="installments__list">
+          <ng-container [ngTemplateOutlet]="installmentsHeader"></ng-container>
+          <li *ngFor="let installment of incomes">
+            <ng-template [ngTemplateOutlet]="installmentList" [ngTemplateOutletContext]="{ installment }"></ng-template>
+          </li>
+        </ul>
+      </div>
+      <div class="installments__card installments__outcomes">
+        <h3>Parcelas a pagar</h3>
+        <component-progress-bar [progress]="totalOutcomesPaid/totalOutcomes" [message]="false" [out]="toMoney(totalOutcomesPaid)" [of]="toMoney(totalOutcomes)"></component-progress-bar>
+        <ul class="installments__list">
+          <ng-container [ngTemplateOutlet]="installmentsHeader"></ng-container>
+          <li *ngFor="let installment of outcomes">
+            <ng-template [ngTemplateOutlet]="installmentList" [ngTemplateOutletContext]="{ installment }"></ng-template>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="financials__charts">
+      <component-column-chart [options]="chartOptions"></component-column-chart>
+    </div>
+  </div>
+</view-default>
+
+<ng-template #installmentsHeader>
+  <li class="installments__list__header">
+    <p class="index"></p>
+    <p class="description">Descrição</p>
+    <p>Data prevista</p>
+    <p>Valor</p>
+    <p>Pago em</p>
+  </li>
+</ng-template>
+
+<ng-template #installmentList let-installment="installment">
+  <p class="index">{{ installment.id }}ª</p>
+  <p class="description">{{ installment.description }}</p>
+  <p>{{ installment.shouldBePaidAt.toLocaleDateString() }}</p>
+  <p>{{ toMoney(installment.amount) }}</p>
+  <ng-container [ngTemplateOutlet]="installment.paidAt ? paymentDate : payButton" [ngTemplateOutletContext]="{ installment }"></ng-container>
+  <div class="installments__list__confirmation" [ngClass]="confirmationId === installment.id ? 'installments__list__confirmation--show' : ''">
+    <p>{{ getConfirmationText(installment.id, installment.type) }}</p>
+    <component-button [label]="'Cancelar'" (onClickEvent)="confirmationId = ''"></component-button>
+    <component-button [label]="'Confirmar'" (onClickEvent)="confirm(installment.id, installment.type)" [type]="'white'"></component-button>
+  </div>
+</ng-template>
+
+<ng-template #paymentDate let-installment="installment">
+  <p style="text-align: center;">{{ installment.paidAt.toLocaleDateString() }}</p>
+</ng-template>
+
+<ng-template #payButton let-installment="installment">
+  <component-button [label]="installment.type === 'INCOME' ? 'Receber' : 'Pagar'" (onClickEvent)="confirmationId = installment.id"></component-button>
+</ng-template>

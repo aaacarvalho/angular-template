@@ -13,6 +13,7 @@ import { ProducerRepository } from '../repositories/producer.repository';
 import { WidgetsModule } from '../widgets/widgets.module';
 import { DashboardView } from './dashboard/dashboard-view.component';
 import { SupportView } from './support/support-view.component';
+import { AccountingView } from './financials/accounting-view.component';
 
 @NgModule({
   providers: [ProjectRepository, ProducerRepository],
@@ -23,6 +24,7 @@ import { SupportView } from './support/support-view.component';
     ProducersView,
     DashboardView,
     SupportView,
+    AccountingView,
   ],
   imports: [
     BrowserModule,

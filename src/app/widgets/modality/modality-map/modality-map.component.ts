@@ -110,7 +110,10 @@ export class ModalityMapWidget {
         drawingControl: true,
         drawingControlOptions: {
           position: google.maps.ControlPosition.TOP_CENTER,
-          drawingModes: [google.maps.drawing.OverlayType.POLYGON],
+          drawingModes: [
+            google.maps.drawing.OverlayType.POLYGON,
+            google.maps.drawing.OverlayType.MARKER,
+          ],
         },
         map: this.map,
         polygonOptions: {
@@ -290,13 +293,14 @@ export class ModalityMapWidget {
       polygonOptions: {
         strokeColor: value,
         fillColor: value,
+        editable: true,
       },
     });
   }
 
   setModalityLayer(layer: number): void {
     this.drawingManager.setOptions({
-      polygonOptions: { zIndex: layer },
+      polygonOptions: { zIndex: layer, editable: true },
     });
   }
 

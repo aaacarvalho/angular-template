@@ -1,4 +1,5 @@
 import { DashboardView } from './dashboard/dashboard-view.component';
+import { AccountingView } from './financials/accounting-view.component';
 import { LoginView } from './login/login-view.component';
 import { ProducersView } from './producers/producers-view.component';
 import { ProjectsView } from './projects/projects-view.component';
@@ -24,5 +25,9 @@ export const routes = [
   {
     path: 'chamados',
     component: SupportView,
+  },
+  {
+    path: 'financeiro',
+    component: AccountingView,
   },
 ];
