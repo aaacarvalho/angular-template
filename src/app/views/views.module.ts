@@ -14,9 +14,12 @@ import { WidgetsModule } from '../widgets/widgets.module';
 import { DashboardView } from './dashboard/dashboard-view.component';
 import { SupportView } from './support/support-view.component';
 import { AccountingView } from './financials/accounting-view.component';
+import { AuthGuard } from '../guards/auth.guard';
+import { LoggedGuard } from '../guards/logged.guard';
+import { PowerBiView } from './powerbi/powerbi.component';
 
 @NgModule({
-  providers: [ProjectRepository, ProducerRepository],
+  providers: [ProjectRepository, ProducerRepository, AuthGuard, LoggedGuard],
   declarations: [
     LoginView,
     DefaultView,
@@ -25,6 +28,7 @@ import { AccountingView } from './financials/accounting-view.component';
     DashboardView,
     SupportView,
     AccountingView,
+    PowerBiView,
   ],
   imports: [
     BrowserModule,

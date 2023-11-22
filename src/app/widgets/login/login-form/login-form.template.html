@@ -1,10 +1,11 @@
 <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <component-logo></component-logo>
+  <component-logo [type]="'dark'"></component-logo>
   <div class="input-wrapper">
     <component-input 
       [type]="'email'"
       [label]="'Email'"
       [icon]="'assets/icons/email.svg'"
+      [error]="emailError"
       formControlName="email"
     ></component-input>
   </div>
@@ -13,12 +14,27 @@
       [label]="'Senha'"
       [type]="'password'"     
       [icon]="'assets/icons/lock.svg'" 
+      [error]="passwordError"
       formControlName="password"
     ></component-input>
   </div>
-  <div class="button-wrapper">
-    <component-button [label]="'Sair'"></component-button>
-    <component-button [label]="'Login'"></component-button>
-  </div>
+  <ng-container *ngIf="error">
+    <div class="error">
+      <p>{{ error }}</p>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="loading; then loader; else loginButton"></ng-container>
   <a class="forgot-password">Esqueceu sua senha?</a>
 </form>
+
+<ng-template #loader>
+  <div class="loader">
+    <img src="assets/icons/spinner.svg" />
+  </div>
+</ng-template>
+
+<ng-template #loginButton>
+  <div class="button-wrapper">
+    <component-button [label]="'Login'"></component-button>
+  </div>
+</ng-template>

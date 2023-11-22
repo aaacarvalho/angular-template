@@ -1,10 +1,11 @@
 .logo {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  margin: 20px 0px 60px;
+  align-items: center;
+  margin: 20px 0px 40px;
   
   div {
-    border: 3px solid #FFF;
     border-radius: 50%;
     height: 50px;
     width: 50px;
@@ -12,6 +13,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #FFF;
+    margin-bottom: 10px;
+  }
+
+  &--dark {
+    div {
+      border: 3px solid rgb(0, 48, 5);
+      color: rgb(0, 48, 5);
+    }
+
+    p {
+      color: rgb(0, 48, 5);
+    }
+  }
+
+  &--light {
+    div {
+      border: 3px solid #FFF;
+      color: #FFF;
+    }
+
+    p {
+      color: #FFF;
+    }
   }
 }

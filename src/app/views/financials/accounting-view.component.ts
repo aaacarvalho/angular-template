@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { ApexOptions } from 'apexcharts';
 
 enum PaymentType {
   Income = 'INCOME',
   Outcome = 'OUTCOME',
 }
 
-type ReportType = 'SAF' | 'REG' | 'TOTAL';
+type ReportType = 'SAF' | 'TOTAL' | 'FPE' | 'REC';
 
 @Component({
   selector: 'view-accounting',
@@ -16,14 +17,16 @@ export class AccountingView {
   selectedOption: ReportType = 'TOTAL';
   selectOptions = [
     { label: 'Total', value: 'TOTAL' },
-    { label: 'REG', value: 'REG' },
+    { label: 'REC', value: 'REC' },
     { label: 'SAF', value: 'SAF' },
+    { label: 'FPE', value: 'FPE' },
   ];
 
   selectOption(option: ReportType): void {
     this.selectedOption = option;
     this.calculateInstallments();
     this.calculateIncomesAndOutcomes();
+    this.updateChart();
   }
 
   numberFormatter = new Intl.NumberFormat('pt-BR', {
@@ -31,15 +34,10 @@ export class AccountingView {
     style: 'currency',
   });
 
-  incomes: any[] = [];
-  outcomes: any[] = [];
   confirmationId = '';
 
-  totalIncomesPaid = 7500;
-  totalIncomes = 12500;
-
-  totalOutcomesPaid = 7500;
-  totalOutcomes = 12500;
+  totalIncomesPaid = 0;
+  totalIncomes = 0;
 
   installments = [
     {
@@ -84,20 +82,19 @@ export class AccountingView {
     },
   ];
 
-  chartOptions = {
+  chartOptions: ApexOptions = {
     series: [
       {
         name: 'Curto Prazo',
-        data: [44, 55, 41, 67, 22, 43],
+        data: [10000, 6400, 3600, 0, 0],
       },
       {
         name: 'Longo Prazo',
-        data: [13, 23, 20, 8, 13, 27],
+        data: [3500, 3500, 3500, 3500, 3500],
       },
     ],
     chart: {
       type: 'bar',
-      height: 750,
       stacked: true,
       toolbar: {
         show: true,
@@ -113,8 +110,12 @@ export class AccountingView {
       },
     },
     xaxis: {
-      type: 'datetime',
-      categories: ['2021', '2022', '2023', '2024', '2025'],
+      categories: ['2024', '2025', '2026', '2027', '2028'],
+    },
+    yaxis: {
+      labels: {
+        formatter: (value: number) => this.numberFormatter.format(value),
+      },
     },
     legend: {
       position: 'right',
@@ -124,6 +125,53 @@ export class AccountingView {
       opacity: 1,
     },
   };
+
+  updateChart(): void {
+    const series = {
+      TOTAL: [
+        {
+          name: 'Curto Prazo',
+          data: [10000, 6400, 3600, 0, 0],
+        },
+        {
+          name: 'Longo Prazo',
+          data: [3500, 3500, 3500, 3500, 3500],
+        },
+      ],
+      SAF: [
+        {
+          name: 'Curto Prazo',
+          data: [6000, 4000, 2000, 0, 0],
+        },
+        {
+          name: 'Longo Prazo',
+          data: [0, 0, 0, 0, 0],
+        },
+      ],
+      REC: [
+        {
+          name: 'Curto Prazo',
+          data: [4000, 2400, 1600, 1000, 1000],
+        },
+        {
+          name: 'Longo Prazo',
+          data: [1000, 1000, 1000, 0, 0],
+        },
+      ],
+      FPE: [
+        {
+          name: 'Curto Prazo',
+          data: [0, 0, 0, 0, 0],
+        },
+        {
+          name: 'Longo Prazo',
+          data: [2500, 2500, 2500, 2500, 2500],
+        },
+      ],
+    };
+
+    this.chartOptions.series = series[this.selectedOption];
+  }
 
   toMoney(amount: number): string {
     return this.numberFormatter.format(amount);
@@ -136,57 +184,32 @@ export class AccountingView {
 
   calculateInstallments(): void {
     const installments = {
-      TOTAL: 6000,
-      SAF: 3500,
-      REG: 2500,
+      TOTAL: [13500, 9900, 7100, 3500, 3500],
+      SAF: [6000, 4000, 2000, 0, 0],
+      REC: [5000, 3400, 2600, 1000, 1000],
+      FPE: [2500, 2500, 2500, 2500, 2500],
     };
 
-    this.incomes = this.installments.map((i, n) => ({
+    this.installments = this.installments.map((i, n) => ({
       ...i,
-      id: n + 1,
+      id: `${n + 1}`,
       type: PaymentType.Income,
-      amount: installments[this.selectedOption],
-    }));
-
-    this.outcomes = this.installments.map((i, n) => ({
-      ...i,
-      id: n + 11,
-      type: PaymentType.Outcome,
-      amount: installments[this.selectedOption],
+      amount: installments[this.selectedOption][n],
     }));
   }
 
   calculateIncomesAndOutcomes(): void {
-    const total = {
-      TOTAL: 30000,
-      SAF: 10500,
-      REG: 7500,
-    };
+    const paidAt = this.installments.filter((i) => i.paidAt);
 
-    const paid = {
-      TOTAL: 18000,
-      SAF: 7000,
-      REG: 5000,
-    };
-
-    this.totalIncomesPaid = paid[this.selectedOption];
-    this.totalIncomes = total[this.selectedOption];
-
-    this.totalOutcomesPaid = paid[this.selectedOption];
-    this.totalOutcomes = total[this.selectedOption];
+    this.totalIncomesPaid = paidAt.reduce((c, a) => (c += a.amount), 0);
+    this.totalIncomes = this.installments.reduce((c, a) => (c += a.amount), 0);
   }
 
   getConfirmationText(id: string, type: PaymentType): string {
-    const installments =
-      type === PaymentType.Income ? this.incomes : this.outcomes;
-
-    const installment = installments.find((i) => i.id === id);
+    const installment = this.installments.find((i) => i.id === id);
 
     if (installment) {
-      const paymentType =
-        installment.type === PaymentType.Income ? 'recebimento' : 'pagamento';
-
-      return `Deseja confirmar o ${paymentType} no valor de ${this.numberFormatter.format(
+      return `Deseja confirmar o pagamento no valor de ${this.numberFormatter.format(
         installment.amount
       )}?`;
     }
@@ -195,10 +218,7 @@ export class AccountingView {
   }
 
   confirm(id: string, type: PaymentType): void {
-    const installments =
-      type === PaymentType.Income ? this.incomes : this.outcomes;
-
-    const installment = installments.find((i) => i.id === id);
+    const installment = this.installments.find((i) => i.id === id);
 
     if (installment) {
       installment.paidAt = new Date();
@@ -206,7 +226,6 @@ export class AccountingView {
 
       if (type === PaymentType.Income)
         this.totalIncomesPaid += installment.amount;
-      else this.totalOutcomesPaid += installment.amount;
     }
   }
 }

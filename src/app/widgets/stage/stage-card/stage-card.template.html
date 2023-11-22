@@ -1,8 +1,7 @@
 <div class="stage-card">
-  <h3>Título da atividade</h3>
+  <h3>Pré Cadastro</h3>
   <div class="activities" cdkDropList [cdkDropListData]="activities" (cdkDropListDropped)="drop($event)">
     <widget-activity-item *ngFor="let activity of activities" [activity]="activity" (activityToggled)="updateProgress($event)"></widget-activity-item>
-    <widget-new-activity (activityCreated)="addActivity($event)"></widget-new-activity>
   </div>
   <component-progress-bar [progress]="progress"></component-progress-bar>
 </div>

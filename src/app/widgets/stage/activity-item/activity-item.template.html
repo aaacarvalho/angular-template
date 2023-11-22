@@ -18,7 +18,6 @@
         <input type="checkbox" [checked]="childActivity.checked" (change)="toggleChildActivity(childActivity.id, !childActivity.checked)"/>
       </div>
     </ng-template>
-    <widget-new-activity (activityCreated)="addChildActivity($event)" [canHaveChildren]="false"></widget-new-activity>
   </div>
 </ng-template>
 

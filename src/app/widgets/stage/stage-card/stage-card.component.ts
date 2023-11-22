@@ -12,7 +12,34 @@ export class StageCardWidget {
   activities: ActivityModel[] = [
     {
       id: '1',
-      description: 'Pegar certidão de nascimento.',
+      description: 'Pré cadastro',
+      children: [
+        {
+          id: '2',
+          description: 'CPF',
+          checked: false,
+        },
+        {
+          id: '3',
+          description: 'RG',
+          checked: false,
+        },
+        {
+          id: '4',
+          description: 'Comprovante de Residência',
+          checked: false,
+        },
+      ],
+      checked: false,
+    },
+    {
+      id: '5',
+      description: 'Solicitação de documentação',
+      checked: false,
+    },
+    {
+      id: '6',
+      description: 'Solicitar atribuição',
       checked: false,
     },
   ];

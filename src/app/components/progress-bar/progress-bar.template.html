@@ -1,7 +1,7 @@
 <div class="progress" [ngClass]="out || of ? 'progress--hoverable': ''">
   <ng-template [ngIf]="message"><label class="progress__label">{{ label }}</label></ng-template>
   <div class="progress__bar">
-    <div class="fill" [style.width.%]="progress * 100">
+    <div class="fill" [style.width.%]="progress * 100 > 100 ? 100 : progress * 100">
     </div>
     <ng-template [ngIf]="out"><label class="progress__out" [ngStyle]="{ 'left.%': progress * 85 }">{{ out }}</label></ng-template>
     <ng-template [ngIf]="of"><label class="progress__of">{{ of }}</label></ng-template>

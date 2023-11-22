@@ -18,4 +18,8 @@ export class UserRepository extends Repository {
 
     localStorage.setItem('api-token', accessToken);
   }
+
+  async me(): Promise<void> {
+    return await this.authenticatedGet('/profile');
+  }
 }
